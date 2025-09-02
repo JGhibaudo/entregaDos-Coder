@@ -15,6 +15,12 @@ body {
   color: #e3dac9;
   line-height: 1.6;
 }
+/*Nav*/
+.nav-link:hover {
+  color: var(--color-accent);
+  text-decoration: underline;
+  transition: color 0.3s ease-in-out;
+}
 
 /* About Us */
 .about-us {
@@ -34,12 +40,13 @@ body {
 
 /* Services */
 .service-card {
-  transition: transform 0.3s;
-  width: 200px; /*si no anda puede ser por esto*/
+    transition: transform 0.3s;background-color: 0.3s;
 }
 
 .service-card:hover {
   transform: scale(1.05);
+  background-color: var(--color-accent);
+  color: #000;
 }
 
 /* Footer */
