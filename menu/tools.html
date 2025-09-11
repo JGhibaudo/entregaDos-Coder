@@ -14,49 +14,135 @@
     <ul>
       <li><a href="../index.html">Home</a></li>
       <li><a href="sobrenosotros.html">About</a></li>
-      <li><a href="tools.html">Skills</a></li>
+      <li><a href="tools.html">Tools</a></li>
       <li><a href="proyectos.html">Services</a></li>
       <li><a href="contacto.html">Contact</a></li>
     </ul>
   </nav>
 </header>
 
-<main>
-  <section class="tools-titulo">
-    <h1>CODERWAVE TOOLS</h1>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0f0f0f;
+      color: #fff;
+    }
+
+    section {
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    h2 {
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 30px;
+      color: #fff;
+    }
+
+    .carousel {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding-bottom: 10px;
+    }
+
+    .carousel::-webkit-scrollbar {
+      height: 8px;
+    }
+    .carousel::-webkit-scrollbar-thumb {
+      background: #444;
+      border-radius: 10px;
+    }
+
+    .card {
+      min-width: 200px;
+      background: #1c1c1c;
+      border-radius: 15px;
+      padding: 20px;
+      text-align: center;
+      flex: 0 0 auto;
+      scroll-snap-align: start;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      background: #2a2a2a;
+    }
+
+    .card img {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+      margin-bottom: 15px;
+    }
+
+    .card h3 {
+      font-size: 1.1rem;
+      margin: 0;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Carrusel Lenguajes -->
+  <section>
+    <h2>Lenguajes que usamos</h2>
+    <div class="carousel">
+      <div class="card">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain.svg" alt="HTML">
+        <h3>HTML</h3>
+      </div>
+      <div class="card">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-plain.svg" alt="CSS">
+        <h3>CSS</h3>
+      </div>
+      <div class="card">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-plain.svg" alt="JavaScript">
+        <h3>JavaScript</h3>
+      </div>
+      <div class="card">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React">
+        <h3>React</h3>
+      </div>
+      <div class="card">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
+        <h3>Python</h3>
+      </div>
+    </div>
   </section>
 
-  <section class="tools-content">
-    <div class="webflow">
-      <h2>WEBFLOW</h2>
-      <p></p>
-    </div>
-    <div class="wordpress">
-      <h2>WORDPRESS</h2>
-      <p></p>
-    </div>
-    <div class="framer">
-      <h2>FRAMER</h2>
-      <p></p>
-    </div>
-    <div class="wix-studio">
-      <h2>WIX-STUDIO</h2>
-      <p></p>
-    </div>
-    <div class="figma">
-      <h2>FIGMA</h2>
-      <p></p>
-    </div>
-    <div class="xcode">
-      <h2>XCODE</h2>
-      <p></p>
-    </div>
-    <div class="unity">
-      <h2>UNITY</h2>
-      <p></p>
+  <!-- Carrusel Herramientas -->
+  <section>
+    <h2>Otras herramientas</h2>
+    <div class="carousel">
+      <div class="card">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git">
+        <h3>Git</h3>
+      </div>
+      <div class="card">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub">
+        <h3>GitHub</h3>
+      </div>
+      <div class="card">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VSCode">
+        <h3>VS Code</h3>
+      </div>
+      <div class="card">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-plain.svg" alt="Bootstrap">
+        <h3>Bootstrap</h3>
+      </div>
+      <div class="card">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma">
+        <h3>Figma</h3>
+      </div>
     </div>
   </section>
-</main>
 
 <footer class="footer-content">
   <div class="terms-and-conditions">
