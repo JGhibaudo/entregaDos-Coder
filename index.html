@@ -4,81 +4,92 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Coderwave Crafters</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <!-- HERO -->
-  <header class="hero">
-    <h1 class="hero-title">
-      <span class="word" id="coderwave">CODERWAVE</span>
-      <span class="word" id="crafters">CRAFTERS</span>
-    </h1>
-    <p class="hero-text">
-      AT CODERWAVE CRAFTERS, WE BELIEVE EVERY IDEA DESERVES TO GROW INTO A DIGITAL
-      EXPERIENCE THAT CONNECTS WITH PEOPLE. OUR MISSION IS TO BLEND DESIGN,
-      TECHNOLOGY, AND INNOVATION TO CRAFT WEBSITES AND APPLICATIONS THAT NOT ONLY
-      WORK FLAWLESSLY BUT ALSO INSPIRE AND ENDURE.
+  <!-- Sección portada -->
+  <header>
+  <section class="hero">
+  <h1 class="hero-title top">
+    <span id="coderwave">
+      <span>C</span><span>O</span><span>D</span><span>E</span><span>R</span><span>W</span><span>A</span><span>V</span><span>E</span>
+    </span>
+  </h1>
+
+  <p class="hero-text">
+    AT CODERWAVE CRAFTERS, WE BELIEVE EVERY IDEA DESERVES TO GROW INTO A DIGITAL
+    EXPERIENCE THAT CONNECTS WITH PEOPLE. OUR MISSION IS TO BLEND DESIGN,
+    TECHNOLOGY, AND INNOVATION TO CRAFT WEBSITES AND APPLICATIONS THAT NOT ONLY
+    WORK FLAWLESSLY BUT ALSO INSPIRE AND ENDURE.
+  </p>
+
+  <h1 class="hero-title bottom">
+    <span id="crafters">
+      <span>C</span><span>R</span><span>A</span><span>F</span><span>T</span><span>E</span><span>R</span><span>S</span>
+    </span>
+  </h1>
+</section>
+
+</header>
+
+  <!-- Sección About Us -->
+<section class="about">
+  <div class="about-text">
+    <h2 class="about-title">
+      <span class="about-part about-down">ABOUT</span>
+      <span class="about-part about-up">US</span>
+    </h2>
+    <p class="about-paragraph">
+      Coderwave Crafters is a web development studio dedicated to transforming
+      ideas into digital experiences. We combine creativity, technology, and
+      precision to build websites and applications that connect with people.
     </p>
-  </header>
+  </div>
+  <div class="about-images">
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+  </div>
+</section>
 
-  <!-- ABOUT US -->
-  <section class="about">
-    <div class="about-text">
-      <h2 class="about-title">
-        <span class="about-part about-down">ABOUT</span>
-        <span class="about-part about-up">US</span>
-      </h2>
-      <p class="about-paragraph">
-        Coderwave Crafters is a web development studio dedicated to transforming
-        ideas into digital experiences. We combine creativity, technology, and
-        precision to build websites and applications that connect with people.
-      </p>
-    </div>
-    <div class="about-images">
-      <div class="box"></div>
-      <div class="box"></div>
-      <div class="box"></div>
-    </div>
-  </section>
-
-  <!-- SKILLS -->
+  <!-- Sección Skills -->
   <section class="skills">
     <h2>SKILLS</h2>
     <div class="skills-carousel">
-      <div class="skill"><img src="icons/html.svg" alt="HTML"><p>HTML</p></div>
-      <div class="skill"><img src="icons/css.svg" alt="CSS"><p>CSS</p></div>
-      <div class="skill"><img src="icons/js.svg" alt="JavaScript"><p>JavaScript</p></div>
-      <div class="skill"><img src="icons/react.svg" alt="React"><p>React</p></div>
-      <div class="skill"><img src="icons/sass.svg" alt="SASS"><p>SASS</p></div>
-      <div class="skill"><img src="icons/python.svg" alt="Python"><p>Python</p></div>
-      <div class="skill"><img src="icons/git.svg" alt="Git"><p>Git</p></div>
-      <div class="skill"><img src="icons/github.svg" alt="GitHub"><p>GitHub</p></div>
-      <div class="skill"><img src="icons/vscode.svg" alt="VSCode"><p>VSCode</p></div>
-      <div class="skill"><img src="icons/bootstrap.svg" alt="Bootstrap"><p>Bootstrap</p></div>
-      <div class="skill"><img src="icons/figma.svg" alt="Figma"><p>Figma</p></div>
+      <div class="skill"><img src="Assets/imagenes/htmllogo.png" alt="HTML"><p>HTML</p></div>
+      <div class="skill"><img src="Assets/imagenes/css-3.png" alt="CSS"><p>CSS</p></div>
+      <div class="skill"><img src="Assets/imagenes/js.png" alt="JavaScript"><p>JavaScript</p></div>
+      <div class="skill"><img src="Assets/imagenes/react.png" alt="React"><p>React</p></div>
+      <div class="skill"><img src="Assets/imagenes/sass.png" alt="SASS"><p>SASS</p></div>
+      <div class="skill"><img src="Assets/imagenes/python.png" alt="Python"><p>Python</p></div>
+      <div class="skill"><img src="Assets/imagenes/social.png" alt="Git"><p>Git</p></div>
+      <div class="skill"><img src="Assets/imagenes/github-logo.png" alt="GitHub"><p>GitHub</p></div>
+      <div class="skill"><img src="Assets/imagenes/vscode.png" alt="VSCode"><p>VSCode</p></div>
+      <div class="skill"><img src="Assets/imagenes/bootstrap.png" alt="Bootstrap"><p>Bootstrap</p></div>
+      <div class="skill"><img src="Assets/imagenes/figma.png" alt="Figma"><p>Figma</p></div>
     </div>
   </section>
 
-  <!-- RECENT WORK -->
+  <!-- Sección proyectos -->
   <section class="recent-work">
     <h2>OUR RECENT WORK</h2>
     <div class="work-grid">
       <div class="work-card">
-        <img src="images/proj1.jpg" alt="Project 1">
-        <button>more info</button>
+        <img src="Assets/imagenes/proyecto1.webp" alt="Project 1">
+        <a href="menu/proyectos.html" class="btn">More Info</a>
       </div>
       <div class="work-card">
-        <img src="images/proj2.jpg" alt="Project 2">
-        <button>more info</button>
+        <img src="Assets/imagenes/proyecto2.jpg" alt="Project 2">
+        <a href="menu/proyectos.html" class="btn">More Info</a>
       </div>
       <div class="work-card">
-        <img src="images/proj3.jpg" alt="Project 3">
-        <button>more info</button>
+        <img src="Assets/imagenes/proyecto3.webp" alt="Project 3">
+        <a href="menu/proyectos.html" class="btn">More Info</a>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
+  <!-- Sección Footer -->
   <footer>
     <div class="footer-text">
       <p>Terms & Conditions | Privacy Policy | Cookie Policy</p>
