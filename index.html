@@ -4,108 +4,90 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Coderwave Crafters</title>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <!-- HERO -->
   <header class="hero">
-    <div class="hero__overlay">
-      <h1 class="hero__title">
-        <span class="word word--coderwave">CODERWAVE</span>
-        <span class="word word--crafters">CRAFTERS</span>
-      </h1>
-      <p class="hero__subtitle">
-        At Coderwave Crafters, we believe every idea deserves to grow into a digital experience that connects with people. Our mission is to blend design, technology, and innovation to craft websites and applications that not only work flawlessly but also inspire and endure.
-      </p>
-    </div>
+    <h1 class="hero-title">
+      <span class="word" id="coderwave">CODERWAVE</span>
+      <span class="word" id="crafters">CRAFTERS</span>
+    </h1>
+    <p class="hero-text">
+      AT CODERWAVE CRAFTERS, WE BELIEVE EVERY IDEA DESERVES TO GROW INTO A DIGITAL
+      EXPERIENCE THAT CONNECTS WITH PEOPLE. OUR MISSION IS TO BLEND DESIGN,
+      TECHNOLOGY, AND INNOVATION TO CRAFT WEBSITES AND APPLICATIONS THAT NOT ONLY
+      WORK FLAWLESSLY BUT ALSO INSPIRE AND ENDURE.
+    </p>
   </header>
 
   <!-- ABOUT US -->
-  <section class="about" id="about">
-    <div class="about__content">
-      <h2 class="about__title">
-        <span class="word word--about">ABOUT</span>
-        <span class="word word--us">US</span>
+  <section class="about">
+    <div class="about-text">
+      <h2 class="about-title">
+        <span class="about-part about-down">ABOUT</span>
+        <span class="about-part about-up">US</span>
       </h2>
-      <p class="about__text">
-        Coderwave Crafters is a web development studio dedicated to transforming ideas into digital experiences. We combine creativity, technology, and precision to build websites and applications that connect with people.
+      <p class="about-paragraph">
+        Coderwave Crafters is a web development studio dedicated to transforming
+        ideas into digital experiences. We combine creativity, technology, and
+        precision to build websites and applications that connect with people.
       </p>
     </div>
-    <div class="about__images">
-      <div class="image-box"></div>
-      <div class="image-box"></div>
-      <div class="image-box"></div>
+    <div class="about-images">
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
     </div>
   </section>
 
   <!-- SKILLS -->
-  <section class="skills" id="skills">
-    <h2 class="section-title">SKILLS</h2>
-    <div class="skills__carousel">
-      <div class="skill-card">
-        <i class="icon html"></i>
-        <h3>HTML</h3>
-        <p>The backbone of every project...</p>
-      </div>
-      <div class="skill-card">
-        <i class="icon css"></i>
-        <h3>CSS</h3>
-        <p>Where style and creativity meet...</p>
-      </div>
-      <div class="skill-card">
-        <i class="icon js"></i>
-        <h3>JavaScript</h3>
-        <p>The language that brings interactivity...</p>
-      </div>
-      <div class="skill-card">
-        <i class="icon react"></i>
-        <h3>React</h3>
-        <p>A powerful framework...</p>
-      </div>
-      <!-- más: SASS, Python, Git, GitHub, VSCode, Bootstrap, Figma -->
+  <section class="skills">
+    <h2>SKILLS</h2>
+    <div class="skills-carousel">
+      <div class="skill"><img src="icons/html.svg" alt="HTML"><p>HTML</p></div>
+      <div class="skill"><img src="icons/css.svg" alt="CSS"><p>CSS</p></div>
+      <div class="skill"><img src="icons/js.svg" alt="JavaScript"><p>JavaScript</p></div>
+      <div class="skill"><img src="icons/react.svg" alt="React"><p>React</p></div>
+      <div class="skill"><img src="icons/sass.svg" alt="SASS"><p>SASS</p></div>
+      <div class="skill"><img src="icons/python.svg" alt="Python"><p>Python</p></div>
+      <div class="skill"><img src="icons/git.svg" alt="Git"><p>Git</p></div>
+      <div class="skill"><img src="icons/github.svg" alt="GitHub"><p>GitHub</p></div>
+      <div class="skill"><img src="icons/vscode.svg" alt="VSCode"><p>VSCode</p></div>
+      <div class="skill"><img src="icons/bootstrap.svg" alt="Bootstrap"><p>Bootstrap</p></div>
+      <div class="skill"><img src="icons/figma.svg" alt="Figma"><p>Figma</p></div>
     </div>
   </section>
 
   <!-- RECENT WORK -->
-  <section class="work" id="work">
-    <h2 class="section-title">OUR RECENT WORK</h2>
-    <div class="work__grid">
-      <div class="work__item">
-        <img src="img/project1.jpg" alt="Project 1">
-        <h3>Project 1</h3>
-        <a href="projects/project1.html" class="btn">More Info</a>
+  <section class="recent-work">
+    <h2>OUR RECENT WORK</h2>
+    <div class="work-grid">
+      <div class="work-card">
+        <img src="images/proj1.jpg" alt="Project 1">
+        <button>more info</button>
       </div>
-      <div class="work__item">
-        <img src="img/project2.jpg" alt="Project 2">
-        <h3>Project 2</h3>
-        <a href="projects/project2.html" class="btn">More Info</a>
+      <div class="work-card">
+        <img src="images/proj2.jpg" alt="Project 2">
+        <button>more info</button>
       </div>
-      <div class="work__item">
-        <img src="img/project3.jpg" alt="Project 3">
-        <h3>Project 3</h3>
-        <a href="projects/project3.html" class="btn">More Info</a>
+      <div class="work-card">
+        <img src="images/proj3.jpg" alt="Project 3">
+        <button>more info</button>
       </div>
     </div>
   </section>
 
   <!-- FOOTER -->
-  <footer class="footer">
-    <div class="footer__links">
-      <a href="#">Terms & Conditions</a> | 
-      <a href="#">Privacy Policy</a> | 
-      <a href="#">Cookie Policy</a>
+  <footer>
+    <div class="footer-text">
+      <p>Terms & Conditions | Privacy Policy | Cookie Policy</p>
+      <p>© 2025 Coderwave Crafters. All rights reserved.</p>
+      <p>Facebook Instagram LinkedIn Pinterest TikTok</p>
     </div>
-    <p>© 2025 Coderwave Crafters. All rights reserved.</p>
-    <div class="footer__socials">
-      <a href="#">Facebook</a>
-      <a href="#">Instagram</a>
-      <a href="#">LinkedIn</a>
-      <a href="#">Pinterest</a>
-      <a href="#">TikTok</a>
-    </div>
-    <div class="footer__brand">
-      <span class="word word--footer">CODERWAVE</span>
-      <span class="word word--footer">CRAFTERS</span>
+    <div class="footer-carousel">
+      <span>CODERWAVE</span>
+      <span>CRAFTERS</span>
     </div>
   </footer>
 </body>
