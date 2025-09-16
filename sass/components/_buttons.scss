@@ -1,0 +1,13 @@
+.btn {
+  background-color: $accent;
+  color: $primary-color;
+  border: none;
+  padding: 6px 14px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 0.85rem;
+
+  &:hover {
+    background-color: lighten($accent, 10%);
+  }
+}

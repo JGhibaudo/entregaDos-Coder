@@ -1,0 +1,30 @@
+.skills-carousel {
+  display: flex;
+  gap: 2rem;
+  animation: scrollCarousel 20s linear infinite;
+
+  @include respond-to(mobile) {
+    flex-wrap: wrap;
+    justify-content: center;
+    animation: none;
+    gap: 1rem;
+  }
+}
+
+.footer-carousel {
+  border-top: 1px solid rgba($secondary-color, 0.2);
+  border-bottom: 1px solid rgba($secondary-color, 0.2);
+  padding: 3rem 0;
+  overflow: hidden;
+  white-space: nowrap;
+
+  span {
+    font-size: 5rem;
+    font-weight: bold;
+    animation: marquee 40s linear infinite;
+
+    @include respond-to(mobile) {
+      font-size: 2.5rem;
+    }
+  }
+}

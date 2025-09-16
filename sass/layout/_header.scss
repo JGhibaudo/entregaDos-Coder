@@ -1,0 +1,20 @@
+.hero {
+  text-align: center;
+  color: $secondary-color;
+
+  .hero-title {
+    font-size: 10vw;
+
+    &.top::after {
+      content: "";
+      display: block;
+      height: 1px;
+      background: rgba($secondary-color, 0.4);
+    }
+  }
+
+  .hero-text {
+    opacity: 0;
+    animation: slideIn 1s ease forwards;
+  }
+}

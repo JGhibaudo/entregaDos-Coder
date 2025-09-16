@@ -1,0 +1,12 @@
+footer {
+  border-top: 1px solid rgba($secondary-color, 0.2);
+  padding: 1rem 2rem;
+
+  .footer-text {
+    margin-bottom: 1rem;
+
+    p {
+      margin: 1rem 0;
+    }
+  }
+}
