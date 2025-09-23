@@ -1,5 +1,81 @@
-* {
+/* Modern CSS Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  
+  @include mobile {
+    font-size: 14px;
+  }
+}
+
+body {
+  font-family: $font-primary;
+  line-height: $line-height-base;
+  color: $text-dark;
+  background-color: $white;
+  overflow-x: hidden;
+}
+
+// Remove default styles
+ul, ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease;
+  
+  &:hover {
+    color: $secondary-color;
+  }
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+img, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+// Selection styles
+::selection {
+  background-color: rgba($secondary-color, 0.3);
+  color: $text-dark;
+}
+
+// Focus styles for accessibility
+:focus {
+  outline: 2px solid $secondary-color;
+  outline-offset: 2px;
+}
+
+// Scrollbar styling
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: $bg-light;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $primary-color;
+  border-radius: 4px;
+  
+  &:hover {
+    background: darken($primary-color, 10%);
+  }
 }

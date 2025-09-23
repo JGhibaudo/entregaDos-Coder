@@ -1,9 +1,173 @@
-body {
-  background: $primary-color;
-  color: $secondary-color;
-  font-family: $font-stack;
+// Typography scale using modular scale
+$typography-scale: 1.25;
+
+// Font sizes
+$font-sizes: (
+  'xs': 0.8rem,
+  'sm': 0.9rem,
+  'base': 1rem,
+  'lg': 1.2rem,
+  'xl': 1.4rem,
+  '2xl': 1.8rem,
+  '3xl': 2.2rem,
+  '4xl': 2.8rem,
+  '5xl': 3.5rem
+);
+
+// Headings
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: $spacing-sm;
+  color: $primary-color;
 }
 
-h1, h2, h3 {
-  font-weight: bold;
+h1 {
+  font-size: map-get($font-sizes, '4xl');
+  
+  @include mobile {
+    font-size: map-get($font-sizes, '3xl');
+  }
+}
+
+h2 {
+  font-size: map-get($font-sizes, '3xl');
+  
+  @include mobile {
+    font-size: map-get($font-sizes, '2xl');
+  }
+}
+
+h3 {
+  font-size: map-get($font-sizes, '2xl');
+}
+
+h4 {
+  font-size: map-get($font-sizes, 'xl');
+}
+
+h5 {
+  font-size: map-get($font-sizes, 'lg');
+}
+
+h6 {
+  font-size: map-get($font-sizes, 'base');
+}
+
+// Paragraphs
+p {
+  margin-bottom: $spacing-md;
+  line-height: $line-height-base;
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// Links
+a {
+  color: $secondary-color;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    color: darken($secondary-color, 15%);
+  }
+  
+  &.text-link {
+    border-bottom: 2px solid transparent;
+    
+    &:hover {
+      border-bottom-color: currentColor;
+    }
+  }
+}
+
+// Lists
+ul, ol {
+  margin-bottom: $spacing-md;
+  padding-left: $spacing-lg;
+}
+
+ul {
+  list-style-type: disc;
+}
+
+ol {
+  list-style-type: decimal;
+}
+
+li {
+  margin-bottom: $spacing-xs;
+  line-height: $line-height-base;
+}
+
+// Blockquotes
+blockquote {
+  border-left: 4px solid $secondary-color;
+  padding-left: $spacing-md;
+  margin: $spacing-lg 0;
+  font-style: italic;
+  color: $text-light;
+  
+  cite {
+    display: block;
+    margin-top: $spacing-sm;
+    font-style: normal;
+    font-weight: 600;
+    color: $primary-color;
+  }
+}
+
+// Code
+code {
+  background: $bg-light;
+  padding: 0.2rem 0.4rem;
+  border-radius: $border-radius-sm;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9em;
+  color: $accent-color;
+}
+
+pre {
+  background: $bg-light;
+  padding: $spacing-md;
+  border-radius: $border-radius;
+  overflow-x: auto;
+  margin: $spacing-md 0;
+  
+  code {
+    background: none;
+    padding: 0;
+  }
+}
+
+// Utility classes for text
+.text {
+  &-center { text-align: center; }
+  &-left { text-align: left; }
+  &-right { text-align: right; }
+  &-justify { text-align: justify; }
+  
+  &-primary { color: $primary-color; }
+  &-secondary { color: $secondary-color; }
+  &-accent { color: $accent-color; }
+  &-light { color: $text-light; }
+  &-white { color: $white; }
+  
+  &-bold { font-weight: 700; }
+  &-semibold { font-weight: 600; }
+  &-normal { font-weight: 400; }
+  &-light { font-weight: 300; }
+  
+  &-uppercase { text-transform: uppercase; }
+  &-lowercase { text-transform: lowercase; }
+  &-capitalize { text-transform: capitalize; }
+}
+
+// Generate font size classes using @each
+@each $name, $size in $font-sizes {
+  .text-#{$name} {
+    font-size: $size;
+  }
 }

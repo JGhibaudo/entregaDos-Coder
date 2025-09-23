@@ -1,0 +1,182 @@
+@import 'sass/abstracts/variables';
+@import 'sass/abstracts/mixins';
+@import 'sass/base/reset';
+@import 'sass/base/typography';
+@import 'sass/layout/header';
+@import 'sass/layout/footer';
+@import 'sass/components/buttons';
+@import 'sass/components/cards';
+@import 'sass/components/forms';
+@import 'sass/pages/contact';
+
+.contact-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: $spacing-lg;
+  min-height: 100vh;
+  
+  @include mobile {
+    padding: $spacing-sm;
+  }
+}
+
+.contact-intro {
+  text-align: center;
+  margin-bottom: $spacing-xl;
+  
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: $primary-color;
+    margin-bottom: $spacing-sm;
+    
+    @include mobile {
+      font-size: 2rem;
+    }
+  }
+  
+  p {
+    font-size: 1.1rem;
+    color: $text-light;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+.contact-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: $spacing-lg;
+  margin-bottom: $spacing-xl;
+  
+  @include mobile {
+    grid-template-columns: 1fr;
+    gap: $spacing-md;
+  }
+}
+
+.contact-info-sections {
+  .info-section {
+    @include card-style;
+    margin-bottom: $spacing-lg;
+    
+    h2 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: $primary-color;
+      margin-bottom: $spacing-sm;
+    }
+    
+    p {
+      color: $text-light;
+      line-height: $line-height-base;
+    }
+  }
+}
+
+.contact-form-section {
+  @include card-style;
+  
+  .contact-form {
+    .form-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: $spacing-sm;
+      margin-bottom: $spacing-md;
+      
+      @include mobile {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .form-group {
+      margin-bottom: $spacing-md;
+      
+      label {
+        display: block;
+        font-weight: 600;
+        color: $primary-color;
+        margin-bottom: $spacing-xs;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+      
+      input, select, textarea {
+        width: 100%;
+        padding: $spacing-sm;
+        border: 2px solid lighten($text-light, 30%);
+        border-radius: $border-radius-sm;
+        font-size: $font-size-base;
+        transition: border-color 0.3s ease;
+        
+        &:focus {
+          outline: none;
+          border-color: $secondary-color;
+          box-shadow: 0 0 0 3px rgba($secondary-color, 0.1);
+        }
+      }
+      
+      textarea {
+        resize: vertical;
+        min-height: 120px;
+      }
+    }
+    
+    .submit-btn {
+      @include button-style($primary-color, $white);
+      width: 100%;
+      padding: $spacing-sm;
+      font-size: 1.1rem;
+    }
+  }
+}
+
+.contact-details {
+  margin-top: $spacing-lg;
+  padding-top: $spacing-md;
+  border-top: 2px solid lighten($text-light, 40%);
+  
+  p {
+    margin-bottom: $spacing-sm;
+    color: $text-light;
+    
+    strong {
+      color: $primary-color;
+      display: block;
+      margin-bottom: $spacing-xs;
+    }
+  }
+}
+
+// ANIMACIÓN para el formulario
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.contact-form-section {
+  animation: slideInUp 0.6s ease-out;
+}
+
+// MIXIN con EACH para generar clases de utilidad
+$spacing-sizes: (
+  'xs': $spacing-xs,
+  'sm': $spacing-sm, 
+  'md': $spacing-md,
+  'lg': $spacing-lg,
+  'xl': $spacing-xl
+);
+
+@each $name, $size in $spacing-sizes {
+  .mb-#{$name} { margin-bottom: $size; }
+  .mt-#{$name} { margin-top: $size; }
+  .p-#{$name} { padding: $size; }
+}
+

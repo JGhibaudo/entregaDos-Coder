@@ -1,0 +1,218 @@
+.projects-page {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: $spacing-lg;
+  min-height: 100vh;
+  
+  @include mobile {
+    padding: $spacing-sm;
+  }
+}
+
+.projects-hero {
+  text-align: center;
+  margin-bottom: $spacing-xl;
+  
+  h1 {
+    font-size: 3rem;
+    color: $primary-color;
+    margin-bottom: $spacing-sm;
+    
+    @include mobile {
+      font-size: 2.2rem;
+    }
+  }
+  
+  p {
+    font-size: 1.2rem;
+    color: $text-light;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+}
+
+.projects-filter {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: $spacing-sm;
+  margin-bottom: $spacing-xl;
+  
+  .filter-btn {
+    @include button-style(lighten($primary-color, 60%), $primary-color);
+    border: 2px solid lighten($primary-color, 40%);
+    
+    &.active {
+      @include button-style($primary-color, $white);
+    }
+  }
+}
+
+.projects-masonry {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: $spacing-lg;
+  margin-bottom: $spacing-xl;
+  
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+}
+
+.project-card {
+  @include card-style;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  position: relative;
+  
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    
+    .project-image {
+      transform: scale(1.1);
+    }
+    
+    .project-overlay {
+      opacity: 1;
+    }
+  }
+  
+  .project-image {
+    width: 100%;
+    height: 250px;
+    background: linear-gradient(45deg, $secondary-color, $accent-color);
+    @include flex-center;
+    color: $white;
+    font-size: 4rem;
+    transition: transform 0.3s ease;
+  }
+  
+  .project-content {
+    padding: $spacing-md;
+    
+    h3 {
+      color: $primary-color;
+      margin-bottom: $spacing-xs;
+      font-size: 1.3rem;
+    }
+    
+    .project-category {
+      color: $secondary-color;
+      font-weight: 600;
+      margin-bottom: $spacing-sm;
+    }
+    
+    .project-description {
+      color: $text-light;
+      line-height: $line-height-base;
+      margin-bottom: $spacing-md;
+    }
+    
+    .project-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: $spacing-xs;
+      margin-bottom: $spacing-md;
+      
+      .tech-tag {
+        background: lighten($secondary-color, 40%);
+        color: $secondary-color;
+        padding: 0.2rem 0.6rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 600;
+      }
+    }
+  }
+  
+  .project-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba($primary-color, 0.9);
+    @include flex-center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    
+    .project-links {
+      @include flex-center;
+      gap: $spacing-sm;
+      
+      .project-link {
+        @include button-style($white, $primary-color);
+        text-decoration: none;
+        
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+
+.project-stats {
+  background: $bg-light;
+  padding: $spacing-xl;
+  border-radius: $border-radius;
+  text-align: center;
+  
+  h2 {
+    color: $primary-color;
+    margin-bottom: $spacing-lg;
+  }
+  
+  .stats-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: $spacing-lg;
+  }
+  
+  .stat {
+    .number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: $secondary-color;
+      display: block;
+    }
+    
+    .label {
+      color: $text-light;
+      font-size: 1.1rem;
+    }
+  }
+}
+
+// Animación para proyectos
+@keyframes projectReveal {
+  from {
+    opacity: 0;
+    transform: scale(0.8) rotate(-5deg);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+  }
+}
+
+.project-card {
+  animation: projectReveal 0.8s ease-out;
+  
+  @for $i from 1 through 12 {
+    &:nth-child(#{$i}) {
+      animation-delay: $i * 0.1s;
+    }
+  }
+}
+
+// Mixin con each para tecnologías
+$technologies: ('react', 'vue', 'angular', 'node', 'python', 'django', 'php', 'laravel');
+
+@each $tech in $technologies {
+  .tech-#{$tech} {
+    background: lighten($secondary-color, 35%) !important;
+    color: darken($secondary-color, 20%) !important;
+  }
+}

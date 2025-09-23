@@ -1,0 +1,187 @@
+.tools-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: $spacing-lg;
+  min-height: 100vh;
+  
+  @include mobile {
+    padding: $spacing-sm;
+  }
+}
+
+.tools-header {
+  text-align: center;
+  margin-bottom: $spacing-xl;
+  
+  h1 {
+    font-size: 2.8rem;
+    color: $primary-color;
+    margin-bottom: $spacing-sm;
+  }
+  
+  p {
+    font-size: 1.1rem;
+    color: $text-light;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+.tools-filter {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: $spacing-sm;
+  margin-bottom: $spacing-lg;
+  
+  .filter-btn {
+    @include button-style(transparent, $primary-color);
+    border: 2px solid $primary-color;
+    
+    &.active {
+      @include button-style($primary-color, $white);
+    }
+    
+    &:hover {
+      transform: translateY(-2px);
+    }
+  }
+}
+
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: $spacing-lg;
+  
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+}
+
+.tool-card {
+  @include card-style;
+  padding: $spacing-lg;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, $secondary-color, $accent-color);
+    transition: left 0.3s ease;
+  }
+  
+  &:hover::before {
+    left: 0;
+  }
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  }
+  
+  .tool-icon {
+    font-size: 3rem;
+    color: $secondary-color;
+    margin-bottom: $spacing-md;
+  }
+  
+  h3 {
+    color: $primary-color;
+    margin-bottom: $spacing-sm;
+    font-size: 1.4rem;
+  }
+  
+  .tool-description {
+    color: $text-light;
+    margin-bottom: $spacing-md;
+    line-height: $line-height-base;
+  }
+  
+  .tool-features {
+    list-style: none;
+    padding: 0;
+    margin-bottom: $spacing-md;
+    
+    li {
+      padding: $spacing-xs 0;
+      color: $text-dark;
+      position: relative;
+      padding-left: $spacing-md;
+      
+      &::before {
+        content: '✓';
+        position: absolute;
+        left: 0;
+        color: $secondary-color;
+        font-weight: bold;
+      }
+    }
+  }
+  
+  .tool-link {
+    @include button-style($secondary-color, $white);
+    display: inline-block;
+    text-decoration: none;
+    
+    &:hover {
+      text-decoration: none;
+      color: $white;
+    }
+  }
+}
+
+.tool-stats {
+  background: linear-gradient(135deg, $primary-color, $secondary-color);
+  color: $white;
+  padding: $spacing-xl;
+  border-radius: $border-radius;
+  margin-top: $spacing-xl;
+  
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: $spacing-lg;
+    text-align: center;
+  }
+  
+  .stat-item {
+    .stat-number {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: $spacing-xs;
+    }
+    
+    .stat-label {
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+  }
+}
+
+// Animación para herramientas
+@keyframes toolSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.tool-card {
+  animation: toolSlideIn 0.6s ease-out;
+  
+  @for $i from 1 through 8 {
+    &:nth-child(#{$i}) {
+      animation-delay: $i * 0.1s;
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "coderwave-crafters",
+  "version": "1.0.0",
+  "description": "Professional web development studio",
+  "scripts": {
+    "sass:watch": "sass --watch sass:css --style=compressed",
+    "sass:build": "sass sass:css --style=compressed",
+    "sass:dev": "sass sass:css --style=expanded --source-map",
+    "build:all": "npm run sass:build",
+    "dev": "npm run sass:dev & live-server"
+  },
+  "devDependencies": {
+    "sass": "^1.66.1",
+    "live-server": "^1.2.2"
+  }
+}
