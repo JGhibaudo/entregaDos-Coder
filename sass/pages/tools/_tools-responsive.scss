@@ -1,0 +1,91 @@
+// Responsive específico para Tools
+.tools-page {
+  // Tablets y pantallas medianas
+  @media (max-width: $tools-breakpoint-lg) {
+    .main-title {
+      font-size: $tools-font-size-5xl;
+      letter-spacing: 6px;
+    }
+    
+    .crafters-title {
+      font-size: 2.5rem;
+    }
+    
+    .skill-card {
+      min-width: 250px;
+      padding: 0 $tools-spacing-lg;
+    }
+  }
+
+  // Tablets pequeñas
+  @media (max-width: $tools-breakpoint-md) {
+    .main-title {
+      font-size: 2.2rem;
+      letter-spacing: 4px;
+      margin-bottom: $tools-spacing-5xl;
+    }
+    
+    .crafters-title {
+      font-size: 2rem;
+      letter-spacing: 4px;
+    }
+    
+    .section-title {
+      font-size: 1.2rem;
+    }
+    
+    .skill-card {
+      min-width: 220px;
+      padding: 0 $tools-spacing-md;
+      
+      img {
+        width: 50px;
+        height: 50px;
+      }
+    }
+
+    .nav-link {
+      font-size: $tools-font-size-sm;
+      margin: 0 $tools-spacing-md;
+    }
+  }
+
+  // Móviles
+  @media (max-width: $tools-breakpoint-sm) {
+    .main-title {
+      font-size: 1.8rem;
+      letter-spacing: 3px;
+    }
+    
+    .crafters-title {
+      font-size: 1.6rem;
+      letter-spacing: 3px;
+    }
+    
+    .section-title {
+      font-size: 1rem;
+    }
+    
+    .skill-card {
+      min-width: 200px;
+      padding: 0 $tools-spacing-sm;
+      
+      h3 {
+        font-size: $tools-font-size-lg;
+      }
+      
+      p {
+        font-size: $tools-font-size-xs;
+      }
+    }
+
+    .nav {
+      flex-direction: column;
+      gap: $tools-spacing-sm;
+
+      .nav-link {
+        margin: $tools-spacing-xs 0;
+      }
+    }
+  }
+}

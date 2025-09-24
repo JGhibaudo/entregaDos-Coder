@@ -1,0 +1,108 @@
+// Estilos base específicos para Tools
+.tools-page {
+  margin: 0;
+  font-family: $tools-font-family;
+  background: $tools-bg-primary;
+  color: $tools-text-primary;
+  overflow-x: hidden;
+
+  // Línea superior
+  .top-line {
+    height: 1px;
+    background: $tools-border-color;
+    width: 100%;
+    margin: 0;
+  }
+
+  // Header específico para Tools
+  header {
+    position: relative;
+    z-index: 1000;
+
+    nav {
+      background-color: transparent !important;
+      padding: $tools-spacing-md 0;
+
+      .nav-link {
+        color: $tools-text-primary !important;
+        font-weight: $tools-font-weight-bold;
+        font-size: $tools-font-size-base;
+        margin: 0 $tools-spacing-lg;
+        padding: $tools-spacing-xs 0 !important;
+        position: relative;
+
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 0;
+          height: 1px;
+          background: $tools-text-primary;
+          transition: width $tools-transition-fast;
+        }
+
+        &:hover::after {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  // Sección principal con título
+  .hero-section {
+    padding: $tools-spacing-6xl $tools-spacing-lg $tools-spacing-3xl;
+    text-align: center;
+  }
+
+  .main-title {
+    font-size: $tools-font-size-6xl;
+    font-weight: $tools-font-weight-bold;
+    margin-bottom: $tools-spacing-6xl;
+    letter-spacing: 8px;
+    line-height: 1;
+    text-transform: uppercase;
+
+    .letter {
+      display: inline-block;
+      transition: transform $tools-transition-fast;
+      cursor: default;
+
+      &:hover {
+        transform: translateY(-3px);
+      }
+    }
+  }
+
+  // Separador entre carruseles
+  .carousel-divider {
+    height: 1px;
+    background: $tools-border-color;
+    margin: $tools-spacing-5xl auto;
+    width: 100%;
+  }
+
+  // Sección CRAFTERS
+  .crafters-section {
+    padding: $tools-spacing-6xl $tools-spacing-lg;
+    text-align: center;
+    position: relative;
+    border-top: 1px solid $tools-border-color;
+
+    .crafters-title {
+      font-size: $tools-font-size-5xl;
+      font-weight: $tools-font-weight-bold;
+      letter-spacing: 6px;
+      margin-bottom: $tools-spacing-5xl;
+
+      .letter {
+        margin: 0 2px;
+      }
+    }
+
+    .hash-symbol {
+      color: $tools-text-muted;
+      margin-right: $tools-spacing-sm;
+    }
+  }
+}

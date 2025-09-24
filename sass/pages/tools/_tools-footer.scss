@@ -1,0 +1,52 @@
+// Footer específico para Tools
+.tools-page {
+  footer {
+    background-color: $tools-bg-secondary;
+    padding: $tools-spacing-3xl $tools-spacing-lg $tools-spacing-2xl;
+    text-align: center;
+    border-top: 1px solid $tools-border-color;
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+
+      .terms-and-conditions {
+        margin-bottom: $tools-spacing-lg;
+
+        a {
+          color: $tools-text-secondary;
+          text-decoration: none;
+          margin: 0 $tools-spacing-md;
+          font-size: $tools-font-size-xs;
+          transition: color $tools-transition-fast;
+
+          &:hover {
+            color: $tools-text-primary;
+          }
+        }
+      }
+
+      p {
+        margin: $tools-spacing-lg 0;
+        color: $tools-text-secondary;
+        font-size: $tools-font-size-xs;
+      }
+
+      .social-icons {
+        margin-top: $tools-spacing-lg;
+
+        a {
+          color: $tools-text-secondary;
+          text-decoration: none;
+          margin: 0 $tools-spacing-sm;
+          font-size: $tools-font-size-xs;
+          transition: color $tools-transition-fast;
+
+          &:hover {
+            color: $tools-text-primary;
+          }
+        }
+      }
+    }
+  }
+}
