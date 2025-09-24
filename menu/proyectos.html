@@ -3,107 +3,510 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Proyectos</title>
-  <link rel="stylesheet" href="../css/projects.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <title>Services - Coderwave Crafters</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Estilos generales */
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background: #0f0f0f;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Efecto repelente del mouse */
+    .repel-effect {
+      transition: all 0.3s ease;
+    }
+
+    .repel-effect:hover {
+      transform: scale(1.02);
+      z-index: 10;
+    }
+
+    /* Línea divisoria */
+    .divider {
+      height: 1px;
+      background: #333;
+      width: 100%;
+      margin: 0;
+    }
+
+    /* Header y navegación */
+    header {
+      position: relative;
+      z-index: 1000;
+    }
+
+    nav {
+      background-color: transparent !important;
+      padding: 20px 0;
+    }
+
+    .nav-link {
+      color: #fff !important;
+      font-weight: bold;
+      font-size: 1.1rem;
+      margin: 0 15px;
+      padding: 5px 0 !important;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: #fff;
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .nav-link:hover {
+      transform: translateY(-2px);
+    }
+
+    /* Sección principal con título */
+    .hero-section {
+      padding: 100px 20px 60px;
+      text-align: center;
+    }
+
+    .main-title {
+      font-size: 6rem;
+      font-weight: bold;
+      margin-bottom: 40px;
+      letter-spacing: 10px;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    /* Sección de proyectos */
+    .projects-section {
+      padding: 80px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2px;
+      border: 1px solid #333;
+    }
+
+    .project-item {
+      background: #1a1a1a;
+      padding: 40px 30px;
+      border: 1px solid #333;
+      position: relative;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .project-item:hover {
+      background: #252525;
+      transform: translateY(-5px);
+    }
+
+    .project-number {
+      font-size: 3rem;
+      font-weight: bold;
+      color: #666;
+      margin-bottom: 20px;
+    }
+
+    .project-title {
+      font-size: 1.8rem;
+      font-weight: bold;
+      margin-bottom: 15px;
+      color: #fff;
+    }
+
+    .project-more {
+      color: #666;
+      font-size: 0.9rem;
+      text-decoration: none;
+      position: relative;
+      padding-right: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .project-more::after {
+      content: '→';
+      position: absolute;
+      right: 0;
+      transition: transform 0.3s ease;
+    }
+
+    .project-more:hover {
+      color: #fff;
+    }
+
+    .project-more:hover::after {
+      transform: translateX(5px);
+    }
+
+    /* Modal de proyecto */
+    .project-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      z-index: 1000;
+      overflow-y: auto;
+    }
+
+    .modal-content {
+      background: #1a1a1a;
+      margin: 50px auto;
+      padding: 40px;
+      max-width: 800px;
+      border: 1px solid #333;
+      position: relative;
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      color: #fff;
+      font-size: 2rem;
+      cursor: pointer;
+      background: none;
+      border: none;
+    }
+
+    /* Sección workflow */
+    .workflow-section {
+      padding: 100px 20px;
+      background: #0a0a0a;
+      border-top: 1px solid #333;
+      border-bottom: 1px solid #333;
+    }
+
+    .workflow-title {
+      font-size: 3rem;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 80px;
+      letter-spacing: 5px;
+    }
+
+    .workflow-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+      gap: 2px;
+      max-width: 1200px;
+      margin: 0 auto;
+      border: 1px solid #333;
+    }
+
+    .workflow-item {
+      padding: 50px 40px;
+      border: 1px solid #333;
+      background: #0f0f0f;
+      transition: all 0.3s ease;
+    }
+
+    .workflow-item:hover {
+      background: #1a1a1a;
+      transform: translateX(5px);
+    }
+
+    .workflow-number {
+      font-size: 4rem;
+      font-weight: bold;
+      color: #666;
+      margin-bottom: 30px;
+    }
+
+    .workflow-subtitle {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+
+    .workflow-description {
+      color: #999;
+      line-height: 1.6;
+      font-size: 1rem;
+    }
+
+    /* Footer */
+    footer {
+      background: #0a0a0a;
+      padding: 60px 20px 40px;
+      text-align: center;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .terms-and-conditions {
+      margin-bottom: 30px;
+    }
+
+    .terms-and-conditions a {
+      color: #999;
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 0.9rem;
+      transition: color 0.3s;
+    }
+
+    .terms-and-conditions a:hover {
+      color: #fff;
+    }
+
+    .footer-content p {
+      margin: 30px 0;
+      color: #999;
+      font-size: 0.9rem;
+    }
+
+    .social-icons {
+      margin-bottom: 40px;
+    }
+
+    .social-icons a {
+      color: #999;
+      text-decoration: none;
+      margin: 0 10px;
+      font-size: 0.9rem;
+      transition: color 0.3s;
+    }
+
+    .social-icons a:hover {
+      color: #fff;
+    }
+
+    .crafters-footer {
+      font-size: 3rem;
+      font-weight: bold;
+      letter-spacing: 5px;
+      margin-top: 40px;
+      padding-top: 40px;
+      border-top: 1px solid #333;
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .main-title {
+        font-size: 4rem;
+        letter-spacing: 6px;
+      }
+      
+      .workflow-title {
+        font-size: 2.5rem;
+      }
+      
+      .workflow-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .main-title {
+        font-size: 3rem;
+        letter-spacing: 4px;
+      }
+      
+      .workflow-title {
+        font-size: 2rem;
+        margin-bottom: 60px;
+      }
+      
+      .workflow-item {
+        padding: 30px 20px;
+      }
+      
+      .project-item {
+        padding: 30px 20px;
+      }
+      
+      .modal-content {
+        margin: 20px;
+        padding: 30px 20px;
+      }
+      
+      .nav-link {
+        font-size: 1rem;
+        margin: 0 10px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .main-title {
+        font-size: 2.5rem;
+        letter-spacing: 3px;
+      }
+      
+      .workflow-title {
+        font-size: 1.8rem;
+      }
+      
+      .crafters-footer {
+        font-size: 2rem;
+        letter-spacing: 3px;
+      }
+      
+      .workflow-number {
+        font-size: 3rem;
+      }
+      
+      .project-title {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
 </head>
 <body>
 
+<!-- Línea superior -->
+<div class="divider"></div>
+
 <header>
-  <nav class="bg-dark py-3">
+  <nav class="py-3">
     <ul class="nav justify-content-center flex-wrap">
       <li class="nav-item">
-        <a class="nav-link text-white fw-bold" href="..index.html">Home</a>
+        <a class="nav-link" href="../index.html">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-white fw-bold" href="menu/sobrenosotros.html">About</a>
+        <a class="nav-link" href="sobrenosotros.html">About</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-white fw-bold" href="menu/tools.html">Tools</a>
+        <a class="nav-link" href="tools.html">Tools</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-white fw-bold" href="menu/proyectos.html">Services</a>
+        <a class="nav-link" href="proyectos.html">Services</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-white fw-bold" href="menu/contacto.html">Contact</a>
+        <a class="nav-link" href="contacto.html">Contact</a>
       </li>
     </ul>
   </nav>
 </header>
 
 <main>
-  <section class="header-title">
-    <h1>OUR PROJECTS</h1>
-    <p>Every project at Coderwave Crafters is a journey. Behind each website and web application lies a story—an idea brought to life through creativity, code, and careful design. Our work is more than just digital solutions; it’s an invitation to explore, connect, and experience the vision of each client. From the first concept to the final launch, we craft projects that not only function flawlessly but also leave a lasting impression, turning ideas into meaningful experiences on the web.</p>
+  <!-- Sección principal con título -->
+  <section class="hero-section">
+    <h1 class="main-title">CODERWAVE</h1>
   </section>
 
-  <section class="proyect1-content">
-    <h2>Project 1</h2>
-    <img src="./Assets/imagenes/proyecto1" alt="img-proyecto1">
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique ut sapiente fugiat quae eum nesciunt placeat rem earum iure libero architecto saepe perferendis.</p>
+  <!-- Línea divisoria -->
+  <div class="divider"></div>
+
+  <!-- Sección de proyectos -->
+  <section class="projects-section">
+    <div class="projects-grid">
+      <!-- Proyecto 1 -->
+      <div class="project-item repel-effect" onclick="openModal('modal1')">
+        <div class="project-number">01</div>
+        <h3 class="project-title">Project 1</h3>
+        <a class="project-more">more info</a>
+      </div>
+
+      <!-- Proyecto 2 -->
+      <div class="project-item repel-effect" onclick="openModal('modal2')">
+        <div class="project-number">02</div>
+        <h3 class="project-title">Project 2</h3>
+        <a class="project-more">more info</a>
+      </div>
+
+      <!-- Proyecto 3 -->
+      <div class="project-item repel-effect" onclick="openModal('modal3')">
+        <div class="project-number">03</div>
+        <h3 class="project-title">Project 3</h3>
+        <a class="project-more">more info</a>
+      </div>
+
+      <!-- Proyecto 4 -->
+      <div class="project-item repel-effect" onclick="openModal('modal4')">
+        <div class="project-number">04</div>
+        <h3 class="project-title">Project 4</h3>
+        <a class="project-more">more info</a>
+      </div>
+
+      <!-- Proyecto 5 -->
+      <div class="project-item repel-effect" onclick="openModal('modal5')">
+        <div class="project-number">05</div>
+        <h3 class="project-title">Project 5</h3>
+        <a class="project-more">more info</a>
+      </div>
+    </div>
   </section>
 
-  <section class="proyect2-content">
-    <h2>Project 2</h2>
-    <img src="./Assets/imagenes/proyecto2" alt="img-proyecto2">
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid suscipit dolores vitae, quisquam saepe sit adipisci blanditiis beatae illum hic optio laboriosam.</p>
-  </section>
+  <!-- Sección workflow -->
+  <section class="workflow-section">
+    <h2 class="workflow-title">OUR WORKFLOW</h2>
+    <div class="workflow-grid">
+      <!-- Paso 1 -->
+      <div class="workflow-item repel-effect">
+        <div class="workflow-number">01</div>
+        <h3 class="workflow-subtitle">Project Discovery</h3>
+        <p class="workflow-description">
+          We begin every project with a deep dive into your business goals, target audience, and existing challenges. 
+          This phase helps us define a clear roadmap and ensures we're aligned with your vision from day one.
+        </p>
+      </div>
 
-  <section class="proyect3-content">
-    <h2>Project 3</h2>
-    <img src="./Assets/imagenes/proyecto3" alt="img-proyecto3">
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At, vero quaerat repellendus impedit, dolor distinctio temporibus possimus illum.</p>
-  </section>
+      <!-- Paso 2 -->
+      <div class="workflow-item repel-effect">
+        <div class="workflow-number">02</div>
+        <h3 class="workflow-subtitle">Secure Account Setup</h3>
+        <p class="workflow-description">
+          Our design team transforms strategy into visuals by creating intuitive, user-centered interfaces. 
+          From wireframes to high-fidelity prototypes, we ensure every screen is purposeful, engaging, and on-brand.
+        </p>
+      </div>
 
-  <section class="proyect4-content">
-    <h2>Project 4</h2>
-    <img src="./Assets/imagenes/proyecto4" alt="img-proyecto4">
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At, vero quaerat repellendus impedit, dolor distinctio temporibus possimus illum.</p>
-  </section>
+      <!-- Paso 3 -->
+      <div class="workflow-item repel-effect">
+        <div class="workflow-number">03</div>
+        <h3 class="workflow-subtitle">Effortless Transactions</h3>
+        <p class="workflow-description">
+          Using modern frameworks and clean, efficient code, we develop scalable SaaS solutions that are fast, secure, 
+          and built to grow. Every line of code is written with performance and reliability in mind.
+        </p>
+      </div>
 
-  <section class="proyect5-content">
-    <h2>Project 5</h2>
-    <img src="./Assets/imagenes/proyecto5" alt="img-proyecto5">
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At, vero quaerat repellendus impedit, dolor distinctio temporibus possimus illum.</p>
-  </section>
-
-  <section class="proyect6-content">
-    <h2>Project 6</h2>
-    <img src="./Assets/imagenes/proyecto6" alt="img-proyecto6">
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At, vero quaerat repellendus impedit, dolor distinctio temporibus possimus illum.</p>
+      <!-- Paso 4 -->
+      <div class="workflow-item repel-effect">
+        <div class="workflow-number">04</div>
+        <h3 class="workflow-subtitle">Smart Insights</h3>
+        <p class="workflow-description">
+          Before launch, we test thoroughly across devices, browsers, and use cases. Once live, we offer continuous 
+          support, updates, and performance monitoring to ensure your product succeeds long after delivery.
+        </p>
+      </div>
+    </div>
   </section>
 </main>
 
-<section class="our-workflow">
-<h2>OUR WORKFLOW</h2>
-<P>At Coderwave Crafters, our workflow is more than a process—it’s a journey we take with every client. From the first conversation to the final launch, we immerse ourselves in your vision, exploring ideas, experimenting with solutions, and refining every detail. We listen, create, test, and adapt, making sure that every line of code and every design choice reflects the story behind the project. With each step, we turn concepts into experiences that are not only functional but also memorable, bringing your ideas to life in the digital world.</P>
-</section>
-<section>
-  <h2>01</h2>
-  <h3>Proyect Discovery</h3>
-  <p>We begin every project with a deep dive into your business goals, target audience, and existing challenges. This phase helps us define a clear roadmap and ensures we’re aligned with your vision from day one.</p>
-</section>
-<section>
-  <h2>02</h2>
-  <h3>Secure Account Setup</h3>
-  <p>Our design team transforms strategy into visuals by creating intuitive, user-centered interfaces. From wireframes to high-fidelity prototypes, we ensure every screen is purposeful, engaging, and on-brand.</p>
-</section>
-<section>
-  <h2>03</h2>
-  <h3>Effortless Transactions</h3>
-  <p>Using modern frameworks and clean, efficient code, we develop scalable SaaS solutions that are fast, secure, and built to grow. Every line of code is written with performance and reliability in mind.</p>
-</section>
-<section>
-  <h2>04</h2>
-  <h3>Smart Insights</h3>
-  <p>Before launch, we test thoroughly across devices, browsers, and use cases. Once live, we offer continuous support, updates, and performance monitoring to ensure your product succeeds long after delivery.</p>
-</section>
-
 <!-- Footer -->
-  <footer class="footer-content">
+<footer>
+  <div class="footer-content">
     <div class="terms-and-conditions">
-      <a href="#">Terms & Conditions</a> |  
-      <a href="#">Privacy Policy</a> |  
+      <a href="#">Terms & Conditions</a>
+      <a href="#">Privacy Policy</a>
       <a href="#">Cookie Policy</a>
     </div>
     <p>© 2025 Coderwave Crafters. All rights reserved.</p>
@@ -114,7 +517,97 @@
       <a href="#">Pinterest</a>
       <a href="#">TikTok</a>
     </div>
-  </footer>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <div class="divider"></div>
+    <div class="crafters-footer">CRAFTERS</div>
+  </div>
+</footer>
+
+<!-- Modales para los proyectos -->
+<div id="modal1" class="project-modal">
+  <div class="modal-content">
+    <button class="close-modal" onclick="closeModal('modal1')">×</button>
+    <h2>Project 1 Details</h2>
+    <p>Detailed information about Project 1 will appear here. This is where you can describe the project, technologies used, challenges faced, and results achieved.</p>
+  </div>
+</div>
+
+<div id="modal2" class="project-modal">
+  <div class="modal-content">
+    <button class="close-modal" onclick="closeModal('modal2')">×</button>
+    <h2>Project 2 Details</h2>
+    <p>Detailed information about Project 2 will appear here. This is where you can describe the project, technologies used, challenges faced, and results achieved.</p>
+  </div>
+</div>
+
+<div id="modal3" class="project-modal">
+  <div class="modal-content">
+    <button class="close-modal" onclick="closeModal('modal3')">×</button>
+    <h2>Project 3 Details</h2>
+    <p>Detailed information about Project 3 will appear here. This is where you can describe the project, technologies used, challenges faced, and results achieved.</p>
+  </div>
+</div>
+
+<div id="modal4" class="project-modal">
+  <div class="modal-content">
+    <button class="close-modal" onclick="closeModal('modal4')">×</button>
+    <h2>Project 4 Details</h2>
+    <p>Detailed information about Project 4 will appear here. This is where you can describe the project, technologies used, challenges faced, and results achieved.</p>
+  </div>
+</div>
+
+<div id="modal5" class="project-modal">
+  <div class="modal-content">
+    <button class="close-modal" onclick="closeModal('modal5')">×</button>
+    <h2>Project 5 Details</h2>
+    <p>Detailed information about Project 5 will appear here. This is where you can describe the project, technologies used, challenges faced, and results achieved.</p>
+  </div>
+</div>
+
+<script>
+// Funciones para los modales
+function openModal(modalId) {
+  document.getElementById(modalId).style.display = 'block';
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal(modalId) {
+  document.getElementById(modalId).style.display = 'none';
+  document.body.style.overflow = 'auto';
+}
+
+// Cerrar modal al hacer click fuera del contenido
+window.onclick = function(event) {
+  const modals = document.querySelectorAll('.project-modal');
+  modals.forEach(modal => {
+    if (event.target === modal) {
+      modal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+  });
+}
+
+// Efecto repelente mejorado para todos los elementos
+document.querySelectorAll('.repel-effect').forEach(item => {
+  item.addEventListener('mousemove', (e) => {
+    const rect = item.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    
+    const distanceX = (x - centerX) / centerX;
+    const distanceY = (y - centerY) / centerY;
+    
+    item.style.transform = `perspective(1000px) rotateY(${distanceX * 5}deg) rotateX(${distanceY * -5}deg) scale(1.02)`;
+  });
+  
+  item.addEventListener('mouseleave', () => {
+    item.style.transform = 'perspective(1000px) rotateY(0deg) rotateX(0deg) scale(1)';
+  });
+});
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

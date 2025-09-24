@@ -3,77 +3,518 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Contacto - Coderwave Crafters</title>
-  <link rel="stylesheet" href="../css/contact.css"> <!-- CAMBIADO -->
+  <title>Contact - Coderwave Crafters</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Estilos generales */
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background: #0f0f0f;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Efecto repelente del mouse */
+    .repel-effect {
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .repel-effect:hover {
+      z-index: 10;
+    }
+
+    /* Línea divisoria */
+    .divider {
+      height: 1px;
+      background: #333;
+      width: 100%;
+      margin: 0;
+    }
+
+    /* Header y navegación */
+    header {
+      position: relative;
+      z-index: 1000;
+    }
+
+    nav {
+      background-color: transparent !important;
+      padding: 20px 0;
+    }
+
+    .nav-link {
+      color: #fff !important;
+      font-weight: bold;
+      font-size: 1.1rem;
+      margin: 0 15px;
+      padding: 5px 0 !important;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: #fff;
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .nav-link:hover {
+      transform: translateY(-2px);
+    }
+
+    /* Sección principal con título */
+    .hero-section {
+      padding: 100px 20px 40px;
+      text-align: center;
+    }
+
+    .main-title {
+      font-size: 6rem;
+      font-weight: bold;
+      margin-bottom: 40px;
+      letter-spacing: 10px;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    /* Sección de contacto */
+    .contact-section {
+      padding: 80px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 30px;
+      color: #fff;
+    }
+
+    .contact-content {
+      margin-bottom: 80px;
+    }
+
+    .contact-description {
+      color: #999;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 40px;
+    }
+
+    .contact-info {
+      margin-bottom: 60px;
+    }
+
+    .contact-category {
+      margin-bottom: 50px;
+    }
+
+    .category-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+
+    .category-description {
+      color: #999;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+
+    .email-link {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    .email-link:hover {
+      color: #666;
+    }
+
+    /* Formulario - AHORA DEBAJO DE TODO EL TEXTO */
+    .contact-form {
+      background: transparent;
+      padding: 0;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .form-group {
+      margin-bottom: 30px;
+      position: relative;
+    }
+
+    .form-label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+
+    .form-input {
+      width: 100%;
+      background: transparent;
+      border: 1px solid #333;
+      border-radius: 0;
+      padding: 15px;
+      color: #fff;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .form-input:focus {
+      outline: none;
+      border-color: #666;
+      background: #1a1a1a;
+    }
+
+    .form-input::placeholder {
+      color: #666;
+    }
+
+    .required::after {
+      content: '*';
+      color: #fff;
+      margin-left: 5px;
+    }
+
+    .file-upload {
+      border: 2px dashed #333;
+      padding: 40px 20px;
+      text-align: center;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .file-upload:hover {
+      border-color: #666;
+      background: #1a1a1a;
+    }
+
+    .file-text {
+      color: #999;
+      font-size: 0.9rem;
+      margin-top: 10px;
+    }
+
+    .submit-btn {
+      background: #fff;
+      color: #000;
+      border: none;
+      padding: 15px 40px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: 100%;
+      margin-top: 20px;
+    }
+
+    .submit-btn:hover {
+      background: #666;
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    /* Footer */
+    footer {
+      background: #0a0a0a;
+      padding: 60px 20px 40px;
+      text-align: center;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .terms-and-conditions {
+      margin-bottom: 30px;
+    }
+
+    .terms-and-conditions a {
+      color: #999;
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 0.9rem;
+      transition: color 0.3s;
+    }
+
+    .terms-and-conditions a:hover {
+      color: #fff;
+    }
+
+    .footer-content p {
+      margin: 30px 0;
+      color: #999;
+      font-size: 0.9rem;
+    }
+
+    .social-icons {
+      margin-bottom: 40px;
+    }
+
+    .social-icons a {
+      color: #999;
+      text-decoration: none;
+      margin: 0 10px;
+      font-size: 0.9rem;
+      transition: color 0.3s;
+    }
+
+    .social-icons a:hover {
+      color: #fff;
+    }
+
+    .crafters-footer {
+      font-size: 3rem;
+      font-weight: bold;
+      letter-spacing: 5px;
+      margin-top: 40px;
+      padding-top: 40px;
+      border-top: 1px solid #333;
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .main-title {
+        font-size: 4rem;
+        letter-spacing: 6px;
+      }
+      
+      .section-title {
+        font-size: 2rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .main-title {
+        font-size: 3rem;
+        letter-spacing: 4px;
+      }
+      
+      .section-title {
+        font-size: 1.8rem;
+      }
+      
+      .contact-section {
+        padding: 60px 20px;
+      }
+      
+      .category-title {
+        font-size: 1.3rem;
+      }
+      
+      .nav-link {
+        font-size: 1rem;
+        margin: 0 10px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .main-title {
+        font-size: 2.5rem;
+        letter-spacing: 3px;
+      }
+      
+      .section-title {
+        font-size: 1.5rem;
+      }
+      
+      .crafters-footer {
+        font-size: 2rem;
+        letter-spacing: 3px;
+      }
+      
+      .form-input {
+        padding: 12px;
+      }
+      
+      .file-upload {
+        padding: 30px 15px;
+      }
+    }
+
+    /* Layout específico para desktop - Formulario debajo del texto */
+    @media (min-width: 993px) {
+      .contact-info {
+        max-width: 100%;
+      }
+      
+      .contact-form {
+        margin-top: 80px;
+      }
+    }
+
+    /* Layout para tablet/mobile - Mantiene el diseño original */
+    @media (max-width: 992px) {
+      .contact-form {
+        margin-top: 40px;
+      }
+    }
+  </style>
 </head>
-<body class="contact-page"> <!-- AÑADIDO -->
 <body>
 
+<!-- Línea superior -->
+<div class="divider"></div>
+
 <header>
-  <nav class="bg-dark py-3">
+  <nav class="py-3">
     <ul class="nav justify-content-center flex-wrap">
       <li class="nav-item">
-        <a class="nav-link text-white fw-bold" href="..index.html">Home</a>
+        <a class="nav-link" href="../index.html">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-white fw-bold" href="menu/sobrenosotros.html">About</a>
+        <a class="nav-link" href="sobrenosotros.html">About</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-white fw-bold" href="menu/tools.html">Tools</a>
+        <a class="nav-link" href="tools.html">Tools</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-white fw-bold" href="menu/proyectos.html">Services</a>
+        <a class="nav-link" href="proyectos.html">Services</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-white fw-bold" href="menu/contacto.html">Contact</a>
+        <a class="nav-link" href="contacto.html">Contact</a>
       </li>
     </ul>
   </nav>
 </header>
 
 <main>
-  <section class="contact-intro">
-    <h1>CONTACT US</h1>
-    <p>Have a question, need support, or want to collaborate? We’d love to hear from you!</p>
+  <!-- Sección principal con título -->
+  <section class="hero-section">
+    <h1 class="main-title">CODERWAVE</h1>
   </section>
-<section class="general-support">
-  <h2>General Support</h2>
-  <p>Need some support, having a problem, or just have a question for us? We got you. Reach out us at notify@coderwavecrafters and we will get back to you as soon as possible.</p>
-</section>
-<section class="submit">
-  <h2>Submit a Proyect</h2>
-  <p>Have a recent web development project or case study that you’d like to showcase on Coderwave Crafters? We’d love to see it! Simply submit your project here, and our team will review it. If selected, your work will be featured, highlighting your creativity and technical expertise.</p>
-</section>
-<section class="colaborate">
-  <h2>Contact our Team to Share Tips, Ideas</h2>
-  <p>Got a tip about the latest web trends, a tool you love, or an idea for a collaboration? Reach out directly to our team at Coderwave Crafters to share your insights. We’re always looking for exciting stories, innovative solutions, and new ways to push the boundaries of web development.</p>
-</section>
-<section class="web-development">
-<h2>Looking for Web Development Services?</h2>
-  <p>Do you need a custom website, web application, or full digital solution? Our studio, Coderwave Crafters, offers end-to-end web development services—from design and coding to deployment and maintenance. We craft digital experiences that are functional, beautiful, and tailored to your vision.</p>
-</section>
 
-  <section class="contact-form">
-    <form action="#" method="post">
-      <label for="name">Nombre</label>
-      <input type="text" id="name" name="name" required>
+  <!-- Línea divisoria -->
+  <div class="divider"></div>
 
-      <label for="email">Correo electrónico</label>
-      <input type="email" id="email" name="email" required>
+  <!-- Sección de contacto -->
+  <section class="contact-section">
+    <h2 class="section-title">CONTACT US</h2>
+    <p class="contact-description">
+      Have a question, need support, or want to collaborate? We'd love to hear from you!
+    </p>
 
-      <label for="message">Mensaje</label>
-      <textarea id="message" name="message" rows="5" required></textarea>
+    <div class="contact-content">
+      <!-- Información de contacto - TODA LA INFORMACIÓN PRIMERO -->
+      <div class="contact-info">
+        <!-- General Support -->
+        <div class="contact-category repel-effect">
+          <h3 class="category-title">General Support</h3>
+          <p class="category-description">
+            Need some support, having a problem, or just have a question for us? We got you. 
+            Reach out us at <a href="mailto:notify@coderwavecrafters" class="email-link">notify@coderwavecrafters</a> 
+            and we will get back to you as soon as possible.
+          </p>
+        </div>
 
-      <button type="submit">Enviar</button>
-    </form>
+        <!-- Submit a Project -->
+        <div class="contact-category repel-effect">
+          <h3 class="category-title">Submit a Project</h3>
+          <p class="category-description">
+            Have a recent web development project or case study that you'd like to showcase on Coderwave 
+            Crafters? We'd love to see it! Simply submit your project here, and our team will review it. If 
+            selected, your work will be featured, highlighting your creativity and technical expertise.
+          </p>
+        </div>
+
+        <!-- Contact our Team -->
+        <div class="contact-category repel-effect">
+          <h3 class="category-title">Contact our Team to Share Tips, Ideas</h3>
+          <p class="category-description">
+            Got a tip about the latest web trends, a tool you love, or an idea for a collaboration? 
+            Reach out directly to our team at Coderwave Crafters to share your insights. We're always 
+            looking for exciting stories, innovative solutions, and new ways to push the boundaries 
+            of web development.
+          </p>
+        </div>
+
+        <!-- Looking for Web Development Services? -->
+        <div class="contact-category repel-effect">
+          <h3 class="category-title">Looking for Web Development Services?</h3>
+          <p class="category-description">
+            Do you need a custom website, web application, or full digital solution? Our studio, 
+            Coderwave Crafters, offers end-to-end web development services — from design and coding 
+            to deployment and maintenance. We craft digital experiences that are functional, beautiful, 
+            and tailored to your vision.
+          </p>
+        </div>
+      </div>
+
+      <!-- Formulario de contacto - AHORA DEBAJO DE TODO EL TEXTO -->
+      <div class="contact-form repel-effect">
+        <h3 class="section-title">Get in touch</h3>
+        <p class="contact-description">Leave your message and we'll get back to you shortly.</p>
+        
+        <form id="contactForm">
+          <div class="form-group">
+            <label class="form-label">First Name</label>
+            <input type="text" class="form-input" placeholder="John">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Last Name</label>
+            <input type="text" class="form-input" placeholder="Doe">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label required">Email</label>
+            <input type="email" class="form-input" placeholder="example@domain.com" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Phone</label>
+            <input type="tel" class="form-input" placeholder="+1-999-999-9999">
+          </div>
+
+          <div class="divider" style="margin: 40px 0;"></div>
+
+          <div class="form-group">
+            <label class="form-label required">Message</label>
+            <textarea class="form-input" rows="5" placeholder="Your questions or comments" required></textarea>
+          </div>
+
+          <div class="divider" style="margin: 40px 0;"></div>
+
+          <div class="form-group">
+            <label class="form-label">Attachments</label>
+            <div class="file-upload">
+              <div>Choose file or drop here</div>
+              <div class="file-text">
+                Allowed file types: jpg, jpeg, png, gif, pdf, doc, docx, xls, xlsx, odt, ppt, pptx, pps, ppsx, html, and less than 100 MB.
+              </div>
+            </div>
+          </div>
+
+          <button type="submit" class="submit-btn">Submit</button>
+        </form>
+      </div>
+    </div>
   </section>
 </main>
 
 <!-- Footer -->
-  <footer class="footer-content">
+<footer>
+  <div class="footer-content">
     <div class="terms-and-conditions">
-      <a href="#">Terms & Conditions</a> |  
-      <a href="#">Privacy Policy</a> |  
+      <a href="#">Terms & Conditions</a>
+      <a href="#">Privacy Policy</a>
       <a href="#">Cookie Policy</a>
     </div>
     <p>© 2025 Coderwave Crafters. All rights reserved.</p>
@@ -84,7 +525,73 @@
       <a href="#">Pinterest</a>
       <a href="#">TikTok</a>
     </div>
-  </footer>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <div class="divider"></div>
+    <div class="crafters-footer">CRAFTERS</div>
+  </div>
+</footer>
+
+<script>
+// Efecto repelente 3D mejorado
+document.querySelectorAll('.repel-effect').forEach(item => {
+  item.addEventListener('mousemove', (e) => {
+    const rect = item.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    
+    const distanceX = (x - centerX) / centerX;
+    const distanceY = (y - centerY) / centerY;
+    
+    item.style.transform = `perspective(1000px) rotateY(${distanceX * 3}deg) rotateX(${distanceY * -3}deg) scale(1.02)`;
+    item.style.boxShadow = `${distanceX * 10}px ${distanceY * 10}px 30px rgba(0, 0, 0, 0.3)`;
+  });
+  
+  item.addEventListener('mouseleave', () => {
+    item.style.transform = 'perspective(1000px) rotateY(0deg) rotateX(0deg) scale(1)';
+    item.style.boxShadow = 'none';
+  });
+});
+
+// Validación del formulario
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  
+  const email = this.querySelector('input[type="email"]').value;
+  const message = this.querySelector('textarea').value;
+  
+  if (!email || !message) {
+    alert('Please fill in all required fields.');
+    return;
+  }
+  
+  // Simular envío del formulario
+  alert('Thank you for your message! We will get back to you shortly.');
+  this.reset();
+});
+
+// Efecto para el área de subida de archivos
+const fileUpload = document.querySelector('.file-upload');
+fileUpload.addEventListener('dragover', (e) => {
+  e.preventDefault();
+  fileUpload.style.background = '#1a1a1a';
+  fileUpload.style.borderColor = '#666';
+});
+
+fileUpload.addEventListener('dragleave', () => {
+  fileUpload.style.background = 'transparent';
+  fileUpload.style.borderColor = '#333';
+});
+
+fileUpload.addEventListener('click', () => {
+  // Simular click en input file
+  const fileInput = document.createElement('input');
+  fileInput.type = 'file';
+  fileInput.click();
+});
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

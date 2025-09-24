@@ -1,5 +1,7 @@
-// Importar solo lo necesario para Tools
+// Archivo principal de Tools - Importa todos los módulos
 @import 'tools-variables';
 @import 'tools-base';
-@import 'tools-carousel';
+@import 'tools-carrousel';
 @import 'tools-animations';
+@import 'tools-responsive';
+@import 'tools-footer';

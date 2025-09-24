@@ -1,17 +1,286 @@
-/* Error: Can't find stylesheet to import.
- *   ,
- * 4 | @import 'tools-carousel';
- *   |         ^^^^^^^^^^^^^^^^
- *   '
- *   sass\tools\tools-main.scss 4:9  root stylesheet */
-
-body::before {
-  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
-      "Droid Sans Mono", monospace, monospace;
-  white-space: pre;
-  display: block;
-  padding: 1em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid black;
-  content: "Error: Can't find stylesheet to import.\a   \2577 \a 4 \2502  @import 'tools-carousel';\d\a   \2502          ^^^^^^^^^^^^^^^^\a   \2575 \a   sass\\tools\\tools-main.scss 4:9  root stylesheet";
+.tools-page {
+  margin: 0;
+  font-family: "Arial", sans-serif;
+  background: #0f0f0f;
+  color: #fff;
+  overflow-x: hidden;
 }
+.tools-page .top-line {
+  height: 1px;
+  background: #333;
+  width: 100%;
+  margin: 0;
+}
+.tools-page header {
+  position: relative;
+  z-index: 1000;
+}
+.tools-page header nav {
+  background-color: transparent !important;
+  padding: 15px 0;
+}
+.tools-page header nav .nav-link {
+  color: #fff !important;
+  font-weight: bold;
+  font-size: 1rem;
+  margin: 0 20px;
+  padding: 5px 0 !important;
+  position: relative;
+}
+.tools-page header nav .nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: #fff;
+  transition: width 0.3s ease;
+}
+.tools-page header nav .nav-link:hover::after {
+  width: 100%;
+}
+.tools-page .hero-section {
+  padding: 80px 20px 40px;
+  text-align: center;
+}
+.tools-page .main-title {
+  font-size: 4rem;
+  font-weight: bold;
+  margin-bottom: 80px;
+  letter-spacing: 8px;
+  line-height: 1;
+  text-transform: uppercase;
+}
+.tools-page .main-title .letter {
+  display: inline-block;
+  transition: transform 0.3s ease;
+  cursor: default;
+}
+.tools-page .main-title .letter:hover {
+  transform: translateY(-3px);
+}
+.tools-page .carousel-divider {
+  height: 1px;
+  background: #333;
+  margin: 60px auto;
+  width: 100%;
+}
+.tools-page .crafters-section {
+  padding: 80px 20px;
+  text-align: center;
+  position: relative;
+  border-top: 1px solid #333;
+}
+.tools-page .crafters-section .crafters-title {
+  font-size: 3rem;
+  font-weight: bold;
+  letter-spacing: 6px;
+  margin-bottom: 60px;
+}
+.tools-page .crafters-section .crafters-title .letter {
+  margin: 0 2px;
+}
+.tools-page .crafters-section .hash-symbol {
+  color: #666;
+  margin-right: 10px;
+}
+
+.tools-page .skills-section {
+  padding: 0 20px 80px;
+  position: relative;
+}
+.tools-page .skills-section .section-title {
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 50px;
+  color: #fff;
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+.tools-page .carousel-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+.tools-page .carousel-track {
+  display: flex;
+  width: max-content;
+  animation: scroll-left-tools 40s linear infinite;
+}
+.tools-page .carousel-track.carousel-track-right {
+  animation: scroll-right-tools 40s linear infinite;
+}
+.tools-page .carousel-track:hover, .tools-page .carousel-track.carousel-track-right:hover {
+  animation-play-state: paused;
+}
+.tools-page .skill-card {
+  min-width: 300px;
+  background: transparent;
+  padding: 0 30px;
+  text-align: center;
+  margin: 0;
+  transition: all 0.3s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-right: 1px solid #333;
+}
+.tools-page .skill-card:last-child {
+  border-right: none;
+}
+.tools-page .skill-card:hover {
+  transform: translateY(-5px);
+}
+.tools-page .skill-card img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  margin-bottom: 20px;
+  filter: brightness(0) invert(1);
+}
+.tools-page .skill-card h3 {
+  font-size: 1.2rem;
+  margin: 0 0 15px 0;
+  color: #fff;
+  font-weight: bold;
+}
+.tools-page .skill-card p {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: #999;
+  margin: 0;
+  max-width: 250px;
+}
+
+@keyframes scroll-left-tools {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+@keyframes scroll-right-tools {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@media (max-width: 992px) {
+  .tools-page .main-title {
+    font-size: 3rem;
+    letter-spacing: 6px;
+  }
+  .tools-page .crafters-title {
+    font-size: 2.5rem;
+  }
+  .tools-page .skill-card {
+    min-width: 250px;
+    padding: 0 20px;
+  }
+}
+@media (max-width: 768px) {
+  .tools-page .main-title {
+    font-size: 2.2rem;
+    letter-spacing: 4px;
+    margin-bottom: 60px;
+  }
+  .tools-page .crafters-title {
+    font-size: 2rem;
+    letter-spacing: 4px;
+  }
+  .tools-page .section-title {
+    font-size: 1.2rem;
+  }
+  .tools-page .skill-card {
+    min-width: 220px;
+    padding: 0 15px;
+  }
+  .tools-page .skill-card img {
+    width: 50px;
+    height: 50px;
+  }
+  .tools-page .nav-link {
+    font-size: 0.9rem;
+    margin: 0 15px;
+  }
+}
+@media (max-width: 576px) {
+  .tools-page .main-title {
+    font-size: 1.8rem;
+    letter-spacing: 3px;
+  }
+  .tools-page .crafters-title {
+    font-size: 1.6rem;
+    letter-spacing: 3px;
+  }
+  .tools-page .section-title {
+    font-size: 1rem;
+  }
+  .tools-page .skill-card {
+    min-width: 200px;
+    padding: 0 10px;
+  }
+  .tools-page .skill-card h3 {
+    font-size: 1.1rem;
+  }
+  .tools-page .skill-card p {
+    font-size: 0.8rem;
+  }
+  .tools-page .nav {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .tools-page .nav .nav-link {
+    margin: 5px 0;
+  }
+}
+
+.tools-page footer {
+  background-color: #0a0a0a;
+  padding: 40px 20px 30px;
+  text-align: center;
+  border-top: 1px solid #333;
+}
+.tools-page footer .footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.tools-page footer .footer-content .terms-and-conditions {
+  margin-bottom: 20px;
+}
+.tools-page footer .footer-content .terms-and-conditions a {
+  color: #999;
+  text-decoration: none;
+  margin: 0 15px;
+  font-size: 0.8rem;
+  transition: color 0.3s ease;
+}
+.tools-page footer .footer-content .terms-and-conditions a:hover {
+  color: #fff;
+}
+.tools-page footer .footer-content p {
+  margin: 20px 0;
+  color: #999;
+  font-size: 0.8rem;
+}
+.tools-page footer .footer-content .social-icons {
+  margin-top: 20px;
+}
+.tools-page footer .footer-content .social-icons a {
+  color: #999;
+  text-decoration: none;
+  margin: 0 10px;
+  font-size: 0.8rem;
+  transition: color 0.3s ease;
+}
+.tools-page footer .footer-content .social-icons a:hover {
+  color: #fff;
+}
+
+/*# sourceMappingURL=tools.css.map */
