@@ -10,7 +10,7 @@
     body {
       margin: 0;
       font-family: 'Arial', sans-serif;
-      background: #0f0f0f;
+      background: #000;
       color: #fff;
       overflow-x: hidden;
     }
@@ -88,7 +88,7 @@
       text-transform: uppercase;
     }
 
-    /* Sección de proyectos */
+    /* Sección de proyectos (diseño corregido) */
     .projects-section {
       padding: 80px 20px;
       max-width: 1200px;
@@ -96,21 +96,76 @@
     }
 
     .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      display: flex;
+      flex-direction: column;
       gap: 2px;
-      border: 1px solid #333;
+    }
+
+    .project-row {
+      display: flex;
+      gap: 2px;
+    }
+
+    .project-row.single {
+      height: 250px; /* Altura más equilibrada */
+    }
+
+    .project-row.double {
+      height: 250px; /* Altura más equilibrada */
     }
 
     .project-item {
-      background: #1a1a1a;
-      padding: 40px 30px;
+      background: #000;
       border: 1px solid #333;
       position: relative;
       transition: all 0.3s ease;
       cursor: pointer;
+      display: flex;
+      overflow: hidden;
     }
 
+    .project-item.full-width {
+      flex: 1;
+    }
+
+    .project-item.half-width {
+      flex: 1;
+    }
+
+    /* Contenido del proyecto (texto ocupa más espacio) */
+    .project-content {
+      flex: 3; /* Texto ocupa 75% del espacio */
+      padding: 40px 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    /* Espacio para imagen (ocupa menos espacio) */
+    .project-image {
+      flex: 1; /* Imagen ocupa 25% del espacio */
+      background: rgba(255, 255, 255, 0.05);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #666;
+      font-size: 0.9rem;
+      border-left: 1px solid #333;
+    }
+
+    /* Para proyectos de medio ancho, imagen también a la derecha */
+    .project-item.half-width .project-content {
+      flex: 3; /* Texto ocupa 75% */
+      padding: 30px 20px;
+    }
+
+    .project-item.half-width .project-image {
+      flex: 1; /* Imagen ocupa 25% */
+      border-left: 1px solid #333;
+      border-top: none;
+    }
+
+    /* Animación original de proyectos */
     .project-item:hover {
       background: #252525;
       transform: translateY(-5px);
@@ -137,6 +192,8 @@
       position: relative;
       padding-right: 20px;
       transition: all 0.3s ease;
+      display: inline-block;
+      margin-top: 20px;
     }
 
     .project-more::after {
@@ -190,55 +247,65 @@
     /* Sección workflow */
     .workflow-section {
       padding: 100px 20px;
-      background: #0a0a0a;
+      background: #000;
       border-top: 1px solid #333;
       border-bottom: 1px solid #333;
+    }
+
+    .workflow-container {
+      display: flex;
+      max-width: 1200px;
+      margin: 0 auto;
+      gap: 60px;
+    }
+
+    .workflow-intro {
+      flex: 1;
+      padding-right: 40px;
     }
 
     .workflow-title {
       font-size: 3rem;
       font-weight: bold;
-      text-align: center;
-      margin-bottom: 80px;
+      margin-bottom: 30px;
       letter-spacing: 5px;
     }
 
-    .workflow-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-      gap: 2px;
-      max-width: 1200px;
-      margin: 0 auto;
-      border: 1px solid #333;
+    .workflow-description-main {
+      color: #999;
+      line-height: 1.6;
+      font-size: 1.1rem;
     }
 
-    .workflow-item {
-      padding: 50px 40px;
-      border: 1px solid #333;
-      background: #0f0f0f;
-      transition: all 0.3s ease;
+    .workflow-steps {
+      flex: 1;
     }
 
-    .workflow-item:hover {
-      background: #1a1a1a;
-      transform: translateX(5px);
+    .workflow-step {
+      padding: 30px 0;
+      border-bottom: 1px solid #333;
+      position: relative;
     }
 
-    .workflow-number {
-      font-size: 4rem;
+    .workflow-step:last-child {
+      border-bottom: none;
+    }
+
+    .workflow-step-number {
+      font-size: 1.8rem;
       font-weight: bold;
       color: #666;
-      margin-bottom: 30px;
+      margin-bottom: 10px;
     }
 
-    .workflow-subtitle {
-      font-size: 1.5rem;
+    .workflow-step-title {
+      font-size: 1.3rem;
       font-weight: bold;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
       color: #fff;
     }
 
-    .workflow-description {
+    .workflow-step-description {
       color: #999;
       line-height: 1.6;
       font-size: 1rem;
@@ -246,14 +313,12 @@
 
     /* Footer */
     footer {
-      background: #0a0a0a;
+      background: #000;
       padding: 60px 20px 40px;
-      text-align: center;
     }
 
     .footer-content {
       max-width: 1200px;
-      margin: 0 auto;
     }
 
     .terms-and-conditions {
@@ -261,10 +326,10 @@
     }
 
     .terms-and-conditions a {
-      color: #999;
+      color: #fff;
       text-decoration: none;
-      margin: 0 15px;
-      font-size: 0.9rem;
+      margin: 0 10px;
+      font-size: 1rem;
       transition: color 0.3s;
     }
 
@@ -273,9 +338,10 @@
     }
 
     .footer-content p {
-      margin: 30px 0;
-      color: #999;
-      font-size: 0.9rem;
+      margin: 0 10px;
+      margin-bottom: 35px;
+      color: #fff;
+      font-size: 1rem;
     }
 
     .social-icons {
@@ -283,10 +349,10 @@
     }
 
     .social-icons a {
-      color: #999;
+      color: #fff;
       text-decoration: none;
       margin: 0 10px;
-      font-size: 0.9rem;
+      font-size: 1rem;
       transition: color 0.3s;
     }
 
@@ -295,11 +361,8 @@
     }
 
     .crafters-footer {
-      font-size: 3rem;
+      font-size: 14rem;
       font-weight: bold;
-      letter-spacing: 5px;
-      margin-top: 40px;
-      padding-top: 40px;
       border-top: 1px solid #333;
     }
 
@@ -310,16 +373,26 @@
         letter-spacing: 6px;
       }
       
+      .workflow-container {
+        flex-direction: column;
+        gap: 40px;
+      }
+      
+      .workflow-intro {
+        padding-right: 0;
+      }
+      
       .workflow-title {
         font-size: 2.5rem;
       }
       
-      .workflow-grid {
-        grid-template-columns: 1fr;
+      .project-row {
+        flex-direction: column;
+        height: auto;
       }
       
-      .projects-grid {
-        grid-template-columns: 1fr;
+      .project-item {
+        height: 200px;
       }
     }
 
@@ -331,15 +404,26 @@
       
       .workflow-title {
         font-size: 2rem;
-        margin-bottom: 60px;
-      }
-      
-      .workflow-item {
-        padding: 30px 20px;
       }
       
       .project-item {
+        flex-direction: column;
+        height: auto;
+      }
+      
+      .project-item .project-image {
+        border-left: none;
+        border-top: 1px solid #333;
+        min-height: 120px;
+      }
+      
+      .project-content {
         padding: 30px 20px;
+        flex: none;
+      }
+      
+      .project-image {
+        flex: none;
       }
       
       .modal-content {
@@ -368,12 +452,12 @@
         letter-spacing: 3px;
       }
       
-      .workflow-number {
-        font-size: 3rem;
-      }
-      
       .project-title {
         font-size: 1.5rem;
+      }
+      
+      .project-number {
+        font-size: 2.5rem;
       }
     }
   </style>
@@ -414,88 +498,120 @@
   <!-- Línea divisoria -->
   <div class="divider"></div>
 
-  <!-- Sección de proyectos -->
+  <!-- Sección de proyectos (diseño corregido) -->
   <section class="projects-section">
     <div class="projects-grid">
-      <!-- Proyecto 1 -->
-      <div class="project-item repel-effect" onclick="openModal('modal1')">
-        <div class="project-number">01</div>
-        <h3 class="project-title">Project 1</h3>
-        <a class="project-more">more info</a>
+      <!-- Fila 1: 1 proyecto a lo ancho (imagen a la derecha) -->
+      <div class="project-row single">
+        <div class="project-item full-width repel-effect" onclick="openModal('modal1')">
+          <div class="project-content">
+            <div class="project-number">01</div>
+            <h3 class="project-title">Project 1</h3>
+            <a class="project-more">more info</a>
+          </div>
+          <div class="project-image">Image Space</div>
+        </div>
       </div>
 
-      <!-- Proyecto 2 -->
-      <div class="project-item repel-effect" onclick="openModal('modal2')">
-        <div class="project-number">02</div>
-        <h3 class="project-title">Project 2</h3>
-        <a class="project-more">more info</a>
+      <!-- Fila 2: 2 proyectos (imagen a la derecha en ambos) -->
+      <div class="project-row double">
+        <div class="project-item half-width repel-effect" onclick="openModal('modal2')">
+          <div class="project-content">
+            <div class="project-number">02</div>
+            <h3 class="project-title">Project 2</h3>
+            <a class="project-more">more info</a>
+          </div>
+          <div class="project-image">Image Space</div>
+        </div>
+        <div class="project-item half-width repel-effect" onclick="openModal('modal3')">
+          <div class="project-content">
+            <div class="project-number">03</div>
+            <h3 class="project-title">Project 3</h3>
+            <a class="project-more">more info</a>
+          </div>
+          <div class="project-image">Image Space</div>
+        </div>
       </div>
 
-      <!-- Proyecto 3 -->
-      <div class="project-item repel-effect" onclick="openModal('modal3')">
-        <div class="project-number">03</div>
-        <h3 class="project-title">Project 3</h3>
-        <a class="project-more">more info</a>
+      <!-- Fila 3: 1 proyecto a lo ancho (imagen a la derecha) -->
+      <div class="project-row single">
+        <div class="project-item full-width repel-effect" onclick="openModal('modal4')">
+          <div class="project-content">
+            <div class="project-number">04</div>
+            <h3 class="project-title">Project 4</h3>
+            <a class="project-more">more info</a>
+          </div>
+          <div class="project-image">Image Space</div>
+        </div>
       </div>
 
-      <!-- Proyecto 4 -->
-      <div class="project-item repel-effect" onclick="openModal('modal4')">
-        <div class="project-number">04</div>
-        <h3 class="project-title">Project 4</h3>
-        <a class="project-more">more info</a>
-      </div>
-
-      <!-- Proyecto 5 -->
-      <div class="project-item repel-effect" onclick="openModal('modal5')">
-        <div class="project-number">05</div>
-        <h3 class="project-title">Project 5</h3>
-        <a class="project-more">more info</a>
+      <!-- Fila 4: 1 proyecto a lo ancho (imagen a la derecha) -->
+      <div class="project-row single">
+        <div class="project-item full-width repel-effect" onclick="openModal('modal5')">
+          <div class="project-content">
+            <div class="project-number">05</div>
+            <h3 class="project-title">Project 5</h3>
+            <a class="project-more">more info</a>
+          </div>
+          <div class="project-image">Image Space</div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Sección workflow -->
   <section class="workflow-section">
-    <h2 class="workflow-title">OUR WORKFLOW</h2>
-    <div class="workflow-grid">
-      <!-- Paso 1 -->
-      <div class="workflow-item repel-effect">
-        <div class="workflow-number">01</div>
-        <h3 class="workflow-subtitle">Project Discovery</h3>
-        <p class="workflow-description">
-          We begin every project with a deep dive into your business goals, target audience, and existing challenges. 
-          This phase helps us define a clear roadmap and ensures we're aligned with your vision from day one.
+    <div class="workflow-container">
+      <div class="workflow-intro">
+        <h2 class="workflow-title">OUR WORKFLOW</h2>
+        <p class="workflow-description-main">
+          At Codervaxe Crafters, our workflow is more than a process—it's a journey we take with every client. 
+          From the first conversation to the final launch, we immerse ourselves in your vision, exploring ideas, 
+          experimenting with solutions, and refining every detail. We listen, create, test, and adapt, making sure 
+          that every line of code and every design choice reflects the story behind the project.
         </p>
       </div>
+      
+      <div class="workflow-steps">
+        <!-- Paso 1 -->
+        <div class="workflow-step">
+          <div class="workflow-step-number">01</div>
+          <h3 class="workflow-step-title">Project Discovery</h3>
+          <p class="workflow-step-description">
+            We begin every project with a deep dive into your business goals, target audience, and existing challenges. 
+            This phase helps us define a clear roadmap and ensures we're aligned with your vision from day one.
+          </p>
+        </div>
 
-      <!-- Paso 2 -->
-      <div class="workflow-item repel-effect">
-        <div class="workflow-number">02</div>
-        <h3 class="workflow-subtitle">Secure Account Setup</h3>
-        <p class="workflow-description">
-          Our design team transforms strategy into visuals by creating intuitive, user-centered interfaces. 
-          From wireframes to high-fidelity prototypes, we ensure every screen is purposeful, engaging, and on-brand.
-        </p>
-      </div>
+        <!-- Paso 2 -->
+        <div class="workflow-step">
+          <div class="workflow-step-number">02</div>
+          <h3 class="workflow-step-title">Secure Account Setup</h3>
+          <p class="workflow-step-description">
+            Our design team transforms strategy into visuals by creating intuitive, user-centered interfaces. 
+            From wireframes to high-fidelity prototypes, we ensure every screen is purposeful, engaging, and on-brand.
+          </p>
+        </div>
 
-      <!-- Paso 3 -->
-      <div class="workflow-item repel-effect">
-        <div class="workflow-number">03</div>
-        <h3 class="workflow-subtitle">Effortless Transactions</h3>
-        <p class="workflow-description">
-          Using modern frameworks and clean, efficient code, we develop scalable SaaS solutions that are fast, secure, 
-          and built to grow. Every line of code is written with performance and reliability in mind.
-        </p>
-      </div>
+        <!-- Paso 3 -->
+        <div class="workflow-step">
+          <div class="workflow-step-number">03</div>
+          <h3 class="workflow-step-title">Effortless Transactions</h3>
+          <p class="workflow-step-description">
+            Using modern frameworks and clean, efficient code, we develop scalable SaaS solutions that are fast, secure, 
+            and built to grow. Every line of code is written with performance and reliability in mind.
+          </p>
+        </div>
 
-      <!-- Paso 4 -->
-      <div class="workflow-item repel-effect">
-        <div class="workflow-number">04</div>
-        <h3 class="workflow-subtitle">Smart Insights</h3>
-        <p class="workflow-description">
-          Before launch, we test thoroughly across devices, browsers, and use cases. Once live, we offer continuous 
-          support, updates, and performance monitoring to ensure your product succeeds long after delivery.
-        </p>
+        <!-- Paso 4 -->
+        <div class="workflow-step">
+          <div class="workflow-step-number">04</div>
+          <h3 class="workflow-step-title">Smart Insights</h3>
+          <p class="workflow-step-description">
+            Before launch, we test thoroughly across devices, browsers, and use cases. Once live, we offer continuous 
+            support, updates, and performance monitoring to ensure your product succeeds long after delivery.
+          </p>
+        </div>
       </div>
     </div>
   </section>
