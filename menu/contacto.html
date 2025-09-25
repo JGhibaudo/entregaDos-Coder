@@ -25,31 +25,22 @@
       z-index: 10;
     }
 
-    /* Línea divisoria */
-    .divider {
-      height: 1px;
-      background: #333;
-      width: 100%;
-      margin: 0;
-    }
-
     /* Header y navegación */
     header {
       position: relative;
       z-index: 1000;
     }
-
     nav {
       background-color: transparent !important;
-      padding: 20px 0;
+      padding: 15px 0 20px; /* Ajustado el padding */
     }
 
     .nav-link {
       color: #fff !important;
       font-weight: bold;
       font-size: 1.1rem;
-      margin: 0 15px;
-      padding: 5px 0 !important;
+      letter-spacing: 10px;
+      margin: 40 15px;
       position: relative;
       transition: all 0.3s ease;
     }
@@ -73,19 +64,26 @@
       transform: translateY(-2px);
     }
 
-    /* Sección principal con título */
-    .hero-section {
-      padding: 100px 20px 40px;
-      text-align: center;
+    /* Línea divisoria */
+    .divider {
+      height: 1px;
+      background: #333;
+      width: 100%;
+      margin-top: 70px;    
+    }
+
+    /* Header reorganizado */
+    .site-header {
+      padding-top: 0;
     }
 
     .main-title {
-      font-size: 6rem;
+      font-size: 13.1rem;
       font-weight: bold;
-      margin-bottom: 40px;
-      letter-spacing: 10px;
-      line-height: 1;
+      text-align: center;
+      line-height: 0.2;
       text-transform: uppercase;
+      margin: 0;
     }
 
     /* Sección de contacto */
@@ -370,10 +368,16 @@
 </head>
 <body>
 
-<!-- Línea superior -->
-<div class="divider"></div>
+<header class="site-header">
+  <!-- Sección principal con título -->
+  <section class="hero-section">
+    <h1 class="main-title">CODERWAVE</h1>
+  </section>
 
-<header>
+  <!-- Línea divisoria debajo de CODERWAVE -->
+  <div class="divider"></div>
+
+  <!-- Menú de navegación - AHORA DEBAJO DE LA LÍNEA -->
   <nav class="py-3">
     <ul class="nav justify-content-center flex-wrap">
       <li class="nav-item">
@@ -396,14 +400,6 @@
 </header>
 
 <main>
-  <!-- Sección principal con título -->
-  <section class="hero-section">
-    <h1 class="main-title">CODERWAVE</h1>
-  </section>
-
-  <!-- Línea divisoria -->
-  <div class="divider"></div>
-
   <!-- Sección de contacto -->
   <section class="contact-section">
     <h2 class="section-title">CONTACT US</h2>
