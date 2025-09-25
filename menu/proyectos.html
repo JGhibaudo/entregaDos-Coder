@@ -30,6 +30,20 @@
       height: 1px;
       background: #333;
       width: 100%;
+      margin-top: 10px;    
+    }
+
+    /* Header reorganizado */
+    .site-header {
+      padding-top: 0;
+    }
+
+    .main-title {
+      font-size: 13.1rem;
+      font-weight: bold;
+      text-align: center;
+      line-height: 0.7;
+      text-transform: uppercase;
       margin: 0;
     }
 
@@ -41,13 +55,14 @@
 
     nav {
       background-color: transparent !important;
-      padding: 20px 0;
+      padding: 15px 0 20px; /* Ajustado el padding */
     }
 
     .nav-link {
       color: #fff !important;
       font-weight: bold;
       font-size: 1.1rem;
+      letter-spacing: 10px;
       margin: 0 15px;
       padding: 5px 0 !important;
       position: relative;
@@ -73,24 +88,14 @@
       transform: translateY(-2px);
     }
 
-    /* Sección principal con título */
-    .hero-section {
-      padding: 100px 20px 60px;
-      text-align: center;
+    /* Sección principal (ahora solo el contenido después del menú) */
+    .content-section {
+      padding: 40px 20px; /* Reducido el padding */
     }
 
-    .main-title {
-      font-size: 6rem;
-      font-weight: bold;
-      margin-bottom: 40px;
-      letter-spacing: 10px;
-      line-height: 1;
-      text-transform: uppercase;
-    }
-
-    /* Sección de proyectos (diseño corregido) */
+    /* Sección de proyectos */
     .projects-section {
-      padding: 80px 20px;
+      padding: 60px 20px; /* Reducido el padding */
       max-width: 1200px;
       margin: 0 auto;
     }
@@ -107,11 +112,11 @@
     }
 
     .project-row.single {
-      height: 250px; /* Altura más equilibrada */
+      height: 250px;
     }
 
     .project-row.double {
-      height: 250px; /* Altura más equilibrada */
+      height: 250px;
     }
 
     .project-item {
@@ -132,18 +137,18 @@
       flex: 1;
     }
 
-    /* Contenido del proyecto (texto ocupa más espacio) */
+    /* Contenido del proyecto */
     .project-content {
-      flex: 3; /* Texto ocupa 75% del espacio */
+      flex: 3;
       padding: 40px 30px;
       display: flex;
       flex-direction: column;
       justify-content: center;
     }
 
-    /* Espacio para imagen (ocupa menos espacio) */
+    /* Espacio para imagen */
     .project-image {
-      flex: 1; /* Imagen ocupa 25% del espacio */
+      flex: 1;
       background: rgba(255, 255, 255, 0.05);
       display: flex;
       align-items: center;
@@ -153,14 +158,14 @@
       border-left: 1px solid #333;
     }
 
-    /* Para proyectos de medio ancho, imagen también a la derecha */
+    /* Para proyectos de medio ancho */
     .project-item.half-width .project-content {
-      flex: 3; /* Texto ocupa 75% */
+      flex: 3;
       padding: 30px 20px;
     }
 
     .project-item.half-width .project-image {
-      flex: 1; /* Imagen ocupa 25% */
+      flex: 1;
       border-left: 1px solid #333;
       border-top: none;
     }
@@ -246,7 +251,7 @@
 
     /* Sección workflow */
     .workflow-section {
-      padding: 100px 20px;
+      padding: 80px 20px; /* Reducido el padding */
       background: #000;
       border-top: 1px solid #333;
       border-bottom: 1px solid #333;
@@ -314,7 +319,7 @@
     /* Footer */
     footer {
       background: #000;
-      padding: 60px 20px 40px;
+      padding: 40px 20px 30px; /* Reducido el padding */
     }
 
     .footer-content {
@@ -361,7 +366,7 @@
     }
 
     .crafters-footer {
-      font-size: 14rem;
+      font-size: 15rem;
       font-weight: bold;
       border-top: 1px solid #333;
     }
@@ -371,6 +376,7 @@
       .main-title {
         font-size: 4rem;
         letter-spacing: 6px;
+        padding: 15px 20px 8px;
       }
       
       .workflow-container {
@@ -394,12 +400,17 @@
       .project-item {
         height: 200px;
       }
+      
+      nav {
+        padding: 12px 0 15px;
+      }
     }
 
     @media (max-width: 768px) {
       .main-title {
         font-size: 3rem;
         letter-spacing: 4px;
+        padding: 10px 15px 5px;
       }
       
       .workflow-title {
@@ -435,12 +446,21 @@
         font-size: 1rem;
         margin: 0 10px;
       }
+      
+      nav {
+        padding: 10px 0 12px;
+      }
+      
+      .content-section {
+        padding: 30px 15px;
+      }
     }
 
     @media (max-width: 576px) {
       .main-title {
         font-size: 2.5rem;
         letter-spacing: 3px;
+        padding: 8px 10px 4px;
       }
       
       .workflow-title {
@@ -459,49 +479,63 @@
       .project-number {
         font-size: 2.5rem;
       }
+      
+      .nav-link {
+        font-size: 0.9rem;
+        margin: 0 8px;
+      }
+      
+      nav {
+        padding: 8px 0 10px;
+      }
+      
+      .content-section {
+        padding: 20px 10px;
+      }
     }
   </style>
 </head>
 <body>
 
-<!-- Línea superior -->
-<div class="divider"></div>
-
-<header>
-  <nav class="py-3">
-    <ul class="nav justify-content-center flex-wrap">
-      <li class="nav-item">
-        <a class="nav-link" href="../index.html">Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="sobrenosotros.html">About</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="tools.html">Tools</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="proyectos.html">Services</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="contacto.html">Contact</a>
-      </li>
-    </ul>
-  </nav>
-</header>
-
-<main>
-  <!-- Sección principal con título -->
-  <section class="hero-section">
-    <h1 class="main-title">CODERWAVE</h1>
-  </section>
-
-  <!-- Línea divisoria -->
+<!-- Encabezado reorganizado -->
+<div class="site-header">
+  <!-- Título CODERWAVE pegado al top -->
+  <h1 class="main-title">CODERWAVE</h1>
+  
+  <!-- Línea divisoria muy cerca del título -->
   <div class="divider"></div>
+  
+  <!-- Menú de navegación debajo de la línea -->
+  <header>
+    <nav class="py-3">
+      <ul class="nav justify-content-center flex-wrap">
+        <li class="nav-item">
+          <a class="nav-link" href="../index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="sobrenosotros.html">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="tools.html">Tools</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="proyectos.html">Services</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="contacto.html">Contact</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+</div>
 
-  <!-- Sección de proyectos (diseño corregido) -->
+<!-- Contenido principal -->
+<main class="content-section">
+
+  <!-- Sección de proyectos -->
   <section class="projects-section">
     <div class="projects-grid">
-      <!-- Fila 1: 1 proyecto a lo ancho (imagen a la derecha) -->
+      <!-- Fila 1: 1 proyecto a lo ancho -->
       <div class="project-row single">
         <div class="project-item full-width repel-effect" onclick="openModal('modal1')">
           <div class="project-content">
@@ -513,7 +547,7 @@
         </div>
       </div>
 
-      <!-- Fila 2: 2 proyectos (imagen a la derecha en ambos) -->
+      <!-- Fila 2: 2 proyectos -->
       <div class="project-row double">
         <div class="project-item half-width repel-effect" onclick="openModal('modal2')">
           <div class="project-content">
@@ -533,7 +567,7 @@
         </div>
       </div>
 
-      <!-- Fila 3: 1 proyecto a lo ancho (imagen a la derecha) -->
+      <!-- Fila 3: 1 proyecto a lo ancho -->
       <div class="project-row single">
         <div class="project-item full-width repel-effect" onclick="openModal('modal4')">
           <div class="project-content">
@@ -545,7 +579,7 @@
         </div>
       </div>
 
-      <!-- Fila 4: 1 proyecto a lo ancho (imagen a la derecha) -->
+      <!-- Fila 4: 1 proyecto a lo ancho -->
       <div class="project-row single">
         <div class="project-item full-width repel-effect" onclick="openModal('modal5')">
           <div class="project-content">
@@ -633,7 +667,7 @@
       <a href="#">Pinterest</a>
       <a href="#">TikTok</a>
     </div>
-    <div class="divider"></div>
+    <div class="divider-footer"></div>
     <div class="crafters-footer">CRAFTERS</div>
   </div>
 </footer>
