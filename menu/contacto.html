@@ -13,6 +13,9 @@
       background: #000;
       color: #fff;
       overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
 
     /* Efecto repelente del mouse */
@@ -77,13 +80,15 @@
       padding-top: 0;
     }
 
+    /* CAMBIO PRINCIPAL: Ajuste del título CODERWAVE */
     .main-title {
       font-size: 13.1rem;
       font-weight: bold;
       text-align: center;
       line-height: 0.2;
       text-transform: uppercase;
-      margin: 0;
+      margin: 40px 0 20px;
+      padding-top: 30px;
     }
 
     /* Sección de contacto */
@@ -91,6 +96,7 @@
       padding: 80px 20px;
       max-width: 1200px;
       margin: 0 auto;
+      flex: 1;
     }
 
     .section-title {
@@ -227,64 +233,59 @@
       color: #fff;
       transform: translateY(-2px);
     }
-
-    /* Footer */
-    footer {
-      background: #000;
-      padding: 60px 20px 40px;
+/* CRAFTERS SECTION - SUBIDA */
+    .crafters-section {
+      padding: 80px 20px 60px; /* REDUCIDO PADDING (ERA 120px 20px 100px) */
       text-align: center;
     }
 
-    .footer-content {
-      max-width: 1200px;
-      margin: 0 auto;
+    .crafters-title {
+      font-size: 10.5rem;
+      font-weight: bold;
+      margin-bottom: 60px; /* REDUCIDO MARGEN (ERA 60px) */
+      text-transform: uppercase;
     }
 
-    .terms-and-conditions {
-      margin-bottom: 30px;
+    /* FOOTER */
+    footer {
+      background: #000;
+      padding: 90px 20px; /* REDUCIDO PADDING (ERA 60px) */
+      text-align: center;
+      border-top: 2px solid #333;
     }
 
-    .terms-and-conditions a {
+    .footer-links {
+      margin-bottom: 20px; /* REDUCIDO MARGEN (ERA 30px) */
+    }
+
+    .footer-links a {
       color: #fff;
       text-decoration: none;
       margin: 0 15px;
       font-size: 0.9rem;
-      transition: color 0.3s;
+      text-transform: uppercase;
+      letter-spacing: 2px;
     }
 
-    .terms-and-conditions a:hover {
+    .footer-separator {
       color: #fff;
+      margin: 10 10px;
     }
 
-    .footer-content p {
-      margin: 30px 0;
+    .copyright {
       color: #fff;
+      margin: 20px 0; /* REDUCIDO MARGEN (ERA 25px) */
       font-size: 0.9rem;
-    }
-
-    .social-icons {
-      margin-bottom: 40px;
+      letter-spacing: 2px;
     }
 
     .social-icons a {
       color: #fff;
       text-decoration: none;
-      margin: 0 10px;
+      margin: 0 12px;
       font-size: 0.9rem;
-      transition: color 0.3s;
-    }
-
-    .social-icons a:hover {
-      color: #fff;
-    }
-
-    .crafters-footer {
-      font-size: 3rem;
-      font-weight: bold;
-      letter-spacing: 5px;
-      margin-top: 40px;
-      padding-top: 40px;
-      border-top: 1px solid #333;
+      text-transform: uppercase;
+      letter-spacing: 2px;
     }
 
     /* Responsive */
@@ -292,10 +293,25 @@
       .main-title {
         font-size: 4rem;
         letter-spacing: 6px;
+        margin: 30px 0 15px;
+        padding-top: 20px;
       }
       
       .section-title {
         font-size: 2rem;
+      }
+      
+      .crafters-footer {
+        font-size: 10rem;
+      }
+      
+      .terms-and-conditions {
+        flex-direction: column;
+        gap: 10px;
+      }
+      
+      .terms-and-conditions a:not(:last-child)::after {
+        display: none;
       }
     }
 
@@ -303,6 +319,8 @@
       .main-title {
         font-size: 3rem;
         letter-spacing: 4px;
+        margin: 20px 0 10px;
+        padding-top: 15px;
       }
       
       .section-title {
@@ -321,12 +339,22 @@
         font-size: 1rem;
         margin: 0 10px;
       }
+      
+      .crafters-footer {
+        font-size: 8rem;
+      }
+      
+      .social-icons {
+        gap: 15px;
+      }
     }
 
     @media (max-width: 576px) {
       .main-title {
         font-size: 2.5rem;
         letter-spacing: 3px;
+        margin: 15px 0 10px;
+        padding-top: 10px;
       }
       
       .section-title {
@@ -334,7 +362,7 @@
       }
       
       .crafters-footer {
-        font-size: 2rem;
+        font-size: 5rem;
         letter-spacing: 3px;
       }
       
@@ -344,6 +372,14 @@
       
       .file-upload {
         padding: 30px 15px;
+      }
+      
+      .social-icons {
+        gap: 10px;
+      }
+      
+      .terms-and-conditions a {
+        padding: 0 10px;
       }
     }
 
@@ -384,16 +420,16 @@
         <a class="nav-link" href="../index.html">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="sobrenosotros.html">About</a>
+        <a class="nav-link" href="../menu/sobrenosotros.html">About</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="tools.html">Tools</a>
+        <a class="nav-link" href="../menu/tools.html">Tools</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="proyectos.html">Services</a>
+        <a class="nav-link" href="../menu/proyectos.html">Services</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="contacto.html">Contact</a>
+        <a class="nav-link" href="../menu/contacto.html">Contact</a>
       </li>
     </ul>
   </nav>
@@ -505,24 +541,44 @@
   </section>
 </main>
 
-<!-- Footer -->
+<!-- CRAFTERS -->
+  <section class="crafters-section">
+    <h1 class="crafters-title">
+      <span class="letter">C</span>
+      <span class="letter">R</span>
+      <span class="letter">A</span>
+      <span class="letter">F</span>
+      <span class="letter">T</span>
+      <span class="letter">E</span>
+      <span class="letter">R</span>
+      <span class="letter">S</span>
+    </h1>
+    <div class="crafters-divider"></div>
+  </section>
+</main>
+
+<!-- FOOTER -->
 <footer>
   <div class="footer-content">
-    <div class="terms-and-conditions">
+    <div class="footer-links">
       <a href="#">Terms & Conditions</a>
+      <span class="footer-separator">|</span>
       <a href="#">Privacy Policy</a>
+      <span class="footer-separator">|</span>
       <a href="#">Cookie Policy</a>
     </div>
-    <p>© 2025 Coderwave Crafters. All rights reserved.</p>
+    <p class="copyright">© 2025 Coderwave Crafters. All rights reserved.</p>
     <div class="social-icons">
       <a href="#">Facebook</a>
+      <span class="footer-separator">|</span>
       <a href="#">Instagram</a>
+      <span class="footer-separator">|</span>
       <a href="#">LinkedIn</a>
+      <span class="footer-separator">|</span>
       <a href="#">Pinterest</a>
+      <span class="footer-separator">|</span>
       <a href="#">TikTok</a>
     </div>
-    <div class="divider"></div>
-    <div class="crafters-footer">CRAFTERS</div>
   </div>
 </footer>
 
