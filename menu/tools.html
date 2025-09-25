@@ -4,50 +4,83 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Tools - Coderwave Crafters</title>
-<link rel="stylesheet" href="../css/tools.css">
-<body class="tools-page"></body>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
-    /* Estilos generales */
-    body {
+    /* Reset y estilos generales */
+    * {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
       font-family: 'Arial', sans-serif;
       background: #000;
       color: #fff;
       overflow-x: hidden;
     }
 
-    /* Línea superior sobre el menú */
-    .top-line {
-      height: 1px;
-      background: #333;
-      width: 100%;
-      margin: 0;
-    }
-
-    /* Header y navegación */
+    /* HEADER CON ESPACIO PARA LA LÍNEA */
     header {
       position: relative;
       z-index: 1000;
+      width: 100%;
+      padding-top: 70px; /* MÁS ESPACIO PARA BAJAR LA LÍNEA */
     }
 
+    /* LÍNEA SUPERIOR - CORREGIDA Y BAJADA */
+    .header-line {
+      width: 100%;
+      height: 1px;
+      background: #fff;
+      display: block;
+      position: absolute;
+      top: 40px; /* BAJADA LA LÍNEA */
+      left: 0;
+      z-index: 1001;
+    }
+
+    /* NAVEGACIÓN DEBAJO DE LA LÍNEA */
     nav {
-      background-color: transparent !important;
-      padding: 15px 0;
+      width: 100%;
+      background: transparent !important;
+      padding: 1px 0 20px !important;
+    }
+
+    .nav-container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      gap: 40px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-item {
+      margin: 0;
     }
 
     .nav-link {
       color: #fff !important;
+      text-decoration: none;
+      font-size: 0.8rem;
       font-weight: bold;
-      font-size: 1rem;
-      margin: 0 20px;
-      padding: 5px 0 !important;
+      text-transform: uppercase;
+      letter-spacing: 6px;
+      padding: 10px 0 !important;
       position: relative;
+      transition: all 0.3s ease;
     }
 
     .nav-link::after {
       content: '';
       position: absolute;
-      bottom: 0;
+      bottom: 5px;
       left: 0;
       width: 0;
       height: 1px;
@@ -59,77 +92,70 @@
       width: 100%;
     }
 
-    /* Sección principal con título */
+    .nav-link:hover {
+      color: #ccc !important;
+    }
+
+    /* HERO SECTION - SUBIDA */
     .hero-section {
-      padding: 60px 20px 40px;
-      text-align: center;
+      padding: 100px 10px 80px; /* REDUCIDO PADDING SUPERIOR */
     }
 
     .main-title {
-      font-size: 4rem;
+      font-size: 5rem;
       font-weight: bold;
-      margin-bottom: 80px;
-      letter-spacing: 8px;
+      margin-bottom: 80px; /* REDUCIDO MARGEN INFERIOR */
       line-height: 1;
       text-transform: uppercase;
+      color: #fff;
     }
 
     .letter {
       display: inline-block;
       transition: transform 0.3s ease;
-      cursor: default;
     }
 
     .letter:hover {
-      transform: translateY(-3px);
+      transform: translateY(-5px);
     }
 
-    /* Secciones de carrusel */
+    /* SKILLS SECTIONS - SUBIDAS */
     .skills-section {
-      padding: 0 20px 80px;
-      position: relative;
+      padding: 60px 0; /* REDUCIDO PADDING (ERA 90px) */
+      background: #000;
     }
 
     .section-title {
       font-size: 1.5rem;
       text-align: center;
-      margin-bottom: 50px;
+      margin-bottom: 50px; /* REDUCIDO MARGEN (ERA 80px) */
       color: #fff;
-      font-weight: normal;
+      font-weight: 300;
       text-transform: uppercase;
-      letter-spacing: 3px;
+      letter-spacing: 6px;
     }
 
-    /* Carruseles infinitos */
+    /* CARRUSEL */
     .carousel-container {
-      position: relative;
-      overflow: hidden;
       width: 100%;
+      overflow: hidden;
+      position: relative;
     }
 
     .carousel-track {
       display: flex;
-      width: max-content;
       animation: scroll-left 40s linear infinite;
+      width: max-content;
     }
 
     .carousel-track-right {
       animation: scroll-right 40s linear infinite;
     }
 
-    .carousel-track:hover,
-    .carousel-track-right:hover {
-      animation-play-state: paused;
-    }
-
     .skill-card {
-      min-width: 300px;
-      background: transparent;
-      padding: 0 30px;
+      min-width: 350px;
+      padding: 0 60px;
       text-align: center;
-      margin: 0;
-      transition: all 0.3s ease;
-      position: relative;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -140,252 +166,237 @@
       border-right: none;
     }
 
-    .skill-card:hover {
-      transform: translateY(-5px);
+    .skill-card img {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 30px;
+      filter: brightness(0) invert(1);
+      transition: transform 0.6s ease;
     }
 
-    .skill-card img {
-      width: 60px;
-      height: 60px;
-      object-fit: contain;
-      margin-bottom: 20px;
-      filter: brightness(0) invert(1);
+    .skill-card:hover img {
+      transform: rotate(360deg);
     }
 
     .skill-card h3 {
-      font-size: 1.2rem;
-      margin: 0 0 15px 0;
-      color: #fff;
-      font-weight: bold;
+      font-size: 1.4rem;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
     }
 
     .skill-card p {
-      font-size: 0.9rem;
-      line-height: 1.4;
+      font-size: 1rem;
       color: #999;
-      margin: 0;
-      max-width: 250px;
+      line-height: 1.6;
+      max-width: 300px;
     }
 
-    /* Animaciones de carrusel */
     @keyframes scroll-left {
-      0% {
-        transform: translateX(0);
-      }
-      100% {
-        transform: translateX(-50%);
-      }
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
     }
 
     @keyframes scroll-right {
-      0% {
-        transform: translateX(-50%);
-      }
-      100% {
-        transform: translateX(0);
-      }
+      0% { transform: translateX(-50%); }
+      100% { transform: translateX(0); }
     }
 
-    /* Sección CRAFTERS */
+    /* CRAFTERS SECTION - SUBIDA */
     .crafters-section {
-      padding: 80px 20px;
+      padding: 80px 20px 60px; /* REDUCIDO PADDING (ERA 120px 20px 100px) */
       text-align: center;
-      position: relative;
-      border-top: 1px solid #333;
     }
 
     .crafters-title {
-      font-size: 3rem;
+      font-size: 11rem;
       font-weight: bold;
-      letter-spacing: 6px;
-      margin-bottom: 60px;
+      margin-bottom: 60px; /* REDUCIDO MARGEN (ERA 60px) */
+      text-transform: uppercase;
     }
 
-    .crafters-title .letter {
-      margin: 0 2px;
-    }
-
-    .hash-symbol {
-      color: #666;
-      margin-right: 10px;
-    }
-
-    /* Footer */
+    /* FOOTER */
     footer {
-      background-color: #0a0a0a;
-      padding: 40px 20px 30px;
+      background: #000;
+      padding: 90px 20px; /* REDUCIDO PADDING (ERA 60px) */
       text-align: center;
-      border-top: 1px solid #333;
+      border-top: 2px solid #333;
     }
 
-    .footer-content {
-      max-width: 1200px;
-      margin: 0 auto;
+    .footer-links {
+      margin-bottom: 20px; /* REDUCIDO MARGEN (ERA 30px) */
     }
 
-    .terms-and-conditions {
-      margin-bottom: 20px;
-    }
-
-    .terms-and-conditions a {
-      color: #999;
+    .footer-links a {
+      color: #fff;
       text-decoration: none;
       margin: 0 15px;
-      font-size: 0.8rem;
-      transition: color 0.3s;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
     }
 
-    .terms-and-conditions a:hover {
+    .footer-separator {
       color: #fff;
+      margin: 10 10px;
     }
 
-    .footer-content p {
-      margin: 20px 0;
-      color: #999;
-      font-size: 0.8rem;
-    }
-
-    .social-icons {
-      margin-top: 20px;
+    .copyright {
+      color: #fff;
+      margin: 20px 0; /* REDUCIDO MARGEN (ERA 25px) */
+      font-size: 0.9rem;
+      letter-spacing: 2px;
     }
 
     .social-icons a {
-      color: #999;
-      text-decoration: none;
-      margin: 0 10px;
-      font-size: 0.8rem;
-      transition: color 0.3s;
-    }
-
-    .social-icons a:hover {
       color: #fff;
+      text-decoration: none;
+      margin: 0 12px;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
     }
 
-    /* Separador entre carruseles */
-    .carousel-divider {
-      height: 1px;
-      background: #333;
-      margin: 60px auto;
-      width: 100%;
+    /* RESPONSIVE */
+    @media (max-width: 1200px) {
+      .main-title {
+        font-size: 5rem;
+        letter-spacing: 15px;
+      }
+      .nav-menu {
+        gap: 40px;
+      }
+      header {
+        padding-top: 90px;
+      }
+      .header-line {
+        top: 70px;
+      }
+      .crafters-title {
+        font-size: 9rem;
+        letter-spacing: 15px;
+      }
     }
 
-    /* Responsive */
     @media (max-width: 992px) {
       .main-title {
-        font-size: 3rem;
-        letter-spacing: 6px;
+        font-size: 4rem;
+        letter-spacing: 12px;
       }
-      
-      .crafters-title {
-        font-size: 2.5rem;
+      .nav-menu {
+        gap: 30px;
       }
-      
       .skill-card {
-        min-width: 250px;
-        padding: 0 20px;
+        min-width: 300px;
+        padding: 0 40px;
+      }
+      header {
+        padding-top: 80px;
+      }
+      .header-line {
+        top: 60px;
+      }
+      .crafters-title {
+        font-size: 7rem;
+        letter-spacing: 12px;
+      }
+      .skills-section {
+        padding: 50px 0;
       }
     }
 
     @media (max-width: 768px) {
       .main-title {
-        font-size: 2.2rem;
-        letter-spacing: 4px;
-        margin-bottom: 60px;
+        font-size: 3rem;
+        letter-spacing: 8px;
       }
-      
-      .crafters-title {
-        font-size: 2rem;
-        letter-spacing: 4px;
+      .nav-menu {
+        gap: 20px;
+        flex-wrap: wrap;
       }
-      
-      .section-title {
-        font-size: 1.2rem;
-      }
-      
-      .skill-card {
-        min-width: 220px;
-        padding: 0 15px;
-      }
-      
-      .skill-card img {
-        width: 50px;
-        height: 50px;
-      }
-
       .nav-link {
         font-size: 0.9rem;
-        margin: 0 15px;
+        letter-spacing: 2px;
+      }
+      .skill-card {
+        min-width: 250px;
+        padding: 0 30px;
+      }
+      header {
+        padding-top: 70px;
+      }
+      .header-line {
+        top: 50px;
+      }
+      .crafters-title {
+        font-size: 5rem;
+        letter-spacing: 8px;
+      }
+      .skills-section {
+        padding: 40px 0;
       }
     }
 
     @media (max-width: 576px) {
       .main-title {
-        font-size: 1.8rem;
-        letter-spacing: 3px;
+        font-size: 2.2rem;
+        letter-spacing: 6px;
       }
-      
-      .crafters-title {
-        font-size: 1.6rem;
-        letter-spacing: 3px;
-      }
-      
-      .section-title {
-        font-size: 1rem;
-      }
-      
-      .skill-card {
-        min-width: 200px;
-        padding: 0 10px;
-      }
-      
-      .skill-card h3 {
-        font-size: 1.1rem;
-      }
-      
-      .skill-card p {
-        font-size: 0.8rem;
-      }
-
-      .nav {
+      .nav-menu {
+        gap: 15px;
         flex-direction: column;
-        gap: 10px;
       }
-
-      .nav-link {
-        margin: 5px 0;
+      .crafters-title {
+        font-size: 3rem;
+        letter-spacing: 6px;
+      }
+      header {
+        padding-top: 60px;
+      }
+      .header-line {
+        top: 40px;
+      }
+      .skills-section {
+        padding: 30px 0;
+      }
+      .section-title {
+        margin-bottom: 30px;
       }
     }
   </style>
 </head>
 <body>
 
-<!-- Línea superior -->
-<div class="top-line"></div>
-
+<!-- HEADER CON LÍNEA BAJADA Y VISIBLE -->
 <header>
-  <nav class="py-3">
-    <ul class="nav justify-content-center flex-wrap">
-      <li class="nav-item">
-        <a class="nav-link" href="..index.html">Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="menu/sobrenosotros.html">About</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="menu/tools.html">Tools</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="menu/proyectos.html">Services</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="menu/contacto.html">Contact</a>
-      </li>
-    </ul>
+  <!-- LÍNEA DELGADA BAJADA -->
+  <div class="header-line"></div>
+  
+  <nav>
+    <div class="nav-container">
+      <ul class="nav-menu">
+        <li class="nav-item">
+          <a class="nav-link" href="../index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="menu/sobrenosotros.html">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="menu/tools.html">Tools</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="menu/proyectos.html">Services</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="menu/contacto.html">Contact</a>
+        </li>
+      </ul>
+    </div>
   </nav>
 </header>
 
 <main>
-  <!-- Sección principal con título -->
+  <!-- HERO SECTION -->
   <section class="hero-section">
     <h1 class="main-title">
       <span class="letter">C</span>
@@ -406,12 +417,11 @@
     </h1>
   </section>
 
-  <!-- Sección de lenguajes -->
+  <!-- LENGUAJES -->
   <section class="skills-section">
     <h2 class="section-title">Lenguajes que usamos</h2>
     <div class="carousel-container">
       <div class="carousel-track">
-        <!-- Tarjetas duplicadas para efecto infinito -->
         <div class="skill-card">
           <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain.svg" alt="HTML">
           <h3>HTML</h3>
@@ -437,7 +447,7 @@
           <h3>Python</h3>
           <p>Versatile language powering our backend solutions and data-driven applications.</p>
         </div>
-        <!-- Duplicado para efecto infinito -->
+        <!-- Duplicados -->
         <div class="skill-card">
           <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain.svg" alt="HTML">
           <h3>HTML</h3>
@@ -467,15 +477,11 @@
     </div>
   </section>
 
-  <!-- Separador entre carruseles -->
-  <div class="carousel-divider"></div>
-
-  <!-- Sección de herramientas -->
+  <!-- HERRAMIENTAS -->
   <section class="skills-section">
     <h2 class="section-title">Otras herramientas</h2>
     <div class="carousel-container">
       <div class="carousel-track carousel-track-right">
-        <!-- Tarjetas duplicadas para efecto infinito -->
         <div class="skill-card">
           <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git">
           <h3>Git</h3>
@@ -501,7 +507,7 @@
           <h3>Figma</h3>
           <p>Where our designs come to life before a single line of code is written.</p>
         </div>
-        <!-- Duplicado para efecto infinito -->
+        <!-- Duplicados -->
         <div class="skill-card">
           <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git">
           <h3>Git</h3>
@@ -531,10 +537,9 @@
     </div>
   </section>
 
-  <!-- Sección CRAFTERS -->
+  <!-- CRAFTERS -->
   <section class="crafters-section">
     <h1 class="crafters-title">
-      <span class="hash-symbol">#</span>
       <span class="letter">C</span>
       <span class="letter">R</span>
       <span class="letter">A</span>
@@ -544,34 +549,35 @@
       <span class="letter">R</span>
       <span class="letter">S</span>
     </h1>
+    <div class="crafters-divider"></div>
   </section>
 </main>
 
-<!-- Footer -->
+<!-- FOOTER -->
 <footer>
   <div class="footer-content">
-    <div class="terms-and-conditions">
+    <div class="footer-links">
       <a href="#">Terms & Conditions</a>
-      <span style="color: #333;">|</span>
+      <span class="footer-separator">|</span>
       <a href="#">Privacy Policy</a>
-      <span style="color: #333;">|</span>
+      <span class="footer-separator">|</span>
       <a href="#">Cookie Policy</a>
     </div>
-    <p>© 2025 Coderwave Crafters. All rights reserved.</p>
+    <p class="copyright">© 2025 Coderwave Crafters. All rights reserved.</p>
     <div class="social-icons">
       <a href="#">Facebook</a>
-      <span style="color: #333;">|</span>
+      <span class="footer-separator">|</span>
       <a href="#">Instagram</a>
-      <span style="color: #333;">|</span>
+      <span class="footer-separator">|</span>
       <a href="#">LinkedIn</a>
-      <span style="color: #333;">|</span>
+      <span class="footer-separator">|</span>
       <a href="#">Pinterest</a>
-      <span style="color: #333;">|</span>
+      <span class="footer-separator">|</span>
       <a href="#">TikTok</a>
     </div>
   </div>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

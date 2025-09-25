@@ -10,7 +10,7 @@
     body {
       margin: 0;
       font-family: 'Arial', sans-serif;
-      background: #0f0f0f;
+      background: #000;
       color: #fff;
       overflow-x: hidden;
       line-height: 1.6;
@@ -107,12 +107,11 @@
       margin: 0 auto;
     }
 
-    /* Imagen destacada */
+    /* Imagen destacada - CORREGIDO */
     .featured-image {
       width: 100%;
       max-width: 800px;
       height: 400px;
-      background: linear-gradient(45deg, #1a1a1a, #2a2a2a);
       margin: 40px auto;
       display: flex;
       align-items: center;
@@ -122,10 +121,11 @@
       overflow: hidden;
     }
 
-    .image-placeholder {
-      font-size: 1.2rem;
-      color: #666;
-      text-align: center;
+    .featured-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
     /* Secciones de texto */
@@ -143,7 +143,7 @@
     }
 
     .text-content {
-      color: #999;
+      color: #fff;
       font-size: 1.1rem;
       line-height: 1.8;
       margin-bottom: 30px;
@@ -151,7 +151,7 @@
 
     /* Sección Founder */
     .founder-section {
-      background: #0a0a0a;
+      background: #000;
       padding: 80px 20px;
       border-top: 1px solid #333;
       border-bottom: 1px solid #333;
@@ -174,7 +174,7 @@
 
     /* Footer */
     footer {
-      background: #0a0a0a;
+      background: #000;
       padding: 60px 20px 40px;
       text-align: center;
     }
@@ -189,7 +189,7 @@
     }
 
     .terms-and-conditions a {
-      color: #999;
+      color: #fff;
       text-decoration: none;
       margin: 0 15px;
       font-size: 0.9rem;
@@ -197,12 +197,12 @@
     }
 
     .terms-and-conditions a:hover {
-      color: #fff;
+      color: #ccc;
     }
 
     .footer-content p {
       margin: 30px 0;
-      color: #999;
+      color: #fff;
       font-size: 0.9rem;
     }
 
@@ -211,7 +211,7 @@
     }
 
     .social-icons a {
-      color: #999;
+      color: #fff;
       text-decoration: none;
       margin: 0 10px;
       font-size: 0.9rem;
@@ -219,7 +219,7 @@
     }
 
     .social-icons a:hover {
-      color: #fff;
+      color: #ccc;
     }
 
     .crafters-footer {
@@ -362,9 +362,9 @@
   <!-- Subtítulo -->
   <h2 class="subtitle">ABOUT CODERWAVE</h2>
 
-  <!-- Imagen destacada -->
+  <!-- Imagen destacada - RUTA CORREGIDA -->
   <div class="featured-image repel-effect">
-    <div class="image-placeholder">[Image Placeholder - About Coderwave]</div>
+    <img src="../Assets/imagenes/about.jpg" alt="About Coderwave">
   </div>
 
   <!-- Sección de contenido -->
@@ -476,23 +476,25 @@ document.querySelectorAll('.repel-effect').forEach(item => {
 
 // Efecto adicional para la imagen
 const featuredImage = document.querySelector('.featured-image');
-featuredImage.addEventListener('mousemove', (e) => {
-  const rect = featuredImage.getBoundingClientRect();
-  const x = e.clientX - rect.left;
-  const y = e.clientY - rect.top;
+if (featuredImage) {
+  featuredImage.addEventListener('mousemove', (e) => {
+    const rect = featuredImage.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    
+    const moveX = (x - centerX) / centerX * 10;
+    const moveY = (y - centerY) / centerY * 10;
+    
+    featuredImage.style.transform = `perspective(1000px) rotateY(${moveX * 0.5}deg) rotateX(${moveY * -0.5}deg) scale(1.02)`;
+  });
   
-  const centerX = rect.width / 2;
-  const centerY = rect.height / 2;
-  
-  const moveX = (x - centerX) / centerX * 10;
-  const moveY = (y - centerY) / centerY * 10;
-  
-  featuredImage.style.backgroundPosition = `${50 + moveX}% ${50 + moveY}%`;
-});
-
-featuredImage.addEventListener('mouseleave', () => {
-  featuredImage.style.backgroundPosition = 'center';
-});
+  featuredImage.addEventListener('mouseleave', () => {
+    featuredImage.style.transform = 'perspective(1000px) rotateY(0deg) rotateX(0deg) scale(1)';
+  });
+}
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
