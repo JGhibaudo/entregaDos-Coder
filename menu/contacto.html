@@ -6,7 +6,6 @@
   <title>Contact - Coderwave Crafters</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
-    /* Estilos generales */
     body {
       margin: 0;
       font-family: 'Arial', sans-serif;
@@ -18,7 +17,6 @@
       min-height: 100vh;
     }
 
-    /* Efecto repelente del mouse */
     .repel-effect {
       transition: all 0.3s ease;
       position: relative;
@@ -28,14 +26,13 @@
       z-index: 10;
     }
 
-    /* Header y navegación */
     header {
       position: relative;
       z-index: 1000;
     }
     nav {
       background-color: transparent !important;
-      padding: 15px 0 20px; /* Ajustado el padding */
+      padding: 15px 0 20px; 
     }
 
     .nav-link {
@@ -66,8 +63,7 @@
     .nav-link:hover {
       transform: translateY(-2px);
     }
-
-    /* Línea divisoria */
+/*Línea debajo del Coderwave*/
     .divider {
       height: 1px;
       background: #333;
@@ -75,12 +71,11 @@
       margin-top: 70px;    
     }
 
-    /* Header reorganizado */
     .site-header {
       padding-top: 0;
     }
 
-    /* CAMBIO PRINCIPAL: Ajuste del título CODERWAVE */
+    /* título CODERWAVE */
     .main-title {
       font-size: 13.1rem;
       font-weight: bold;
@@ -149,7 +144,7 @@
       color: #666;
     }
 
-    /* Formulario - AHORA DEBAJO DE TODO EL TEXTO */
+    /* Formulario */
     .contact-form {
       background: transparent;
       padding: 0;
@@ -233,29 +228,30 @@
       color: #fff;
       transform: translateY(-2px);
     }
-/* CRAFTERS SECTION - SUBIDA */
+
+/* CRAFTERS seccion */
     .crafters-section {
-      padding: 80px 20px 60px; /* REDUCIDO PADDING (ERA 120px 20px 100px) */
+      padding: 80px 20px 60px; 
       text-align: center;
     }
 
     .crafters-title {
       font-size: 10.5rem;
       font-weight: bold;
-      margin-bottom: 60px; /* REDUCIDO MARGEN (ERA 60px) */
+      margin-bottom: 60px; 
       text-transform: uppercase;
     }
 
     /* FOOTER */
     footer {
       background: #000;
-      padding: 90px 20px; /* REDUCIDO PADDING (ERA 60px) */
+      padding: 90px 20px; 
       text-align: center;
       border-top: 2px solid #333;
     }
 
     .footer-links {
-      margin-bottom: 20px; /* REDUCIDO MARGEN (ERA 30px) */
+      margin-bottom: 20px; 
     }
 
     .footer-links a {
@@ -274,7 +270,7 @@
 
     .copyright {
       color: #fff;
-      margin: 20px 0; /* REDUCIDO MARGEN (ERA 25px) */
+      margin: 20px 0; 
       font-size: 0.9rem;
       letter-spacing: 2px;
     }
@@ -383,7 +379,7 @@
       }
     }
 
-    /* Layout específico para desktop - Formulario debajo del texto */
+    /* Layout para desktop */
     @media (min-width: 993px) {
       .contact-info {
         max-width: 100%;
@@ -394,7 +390,7 @@
       }
     }
 
-    /* Layout para tablet/mobile - Mantiene el diseño original */
+    /* Layout para tablet/mobile */
     @media (max-width: 992px) {
       .contact-form {
         margin-top: 40px;
@@ -405,7 +401,7 @@
 <body>
 
 <header class="site-header">
-  <!-- Sección principal con título -->
+  <!-- Sección título -->
   <section class="hero-section">
     <h1 class="main-title">CODERWAVE</h1>
   </section>
@@ -413,7 +409,7 @@
   <!-- Línea divisoria debajo de CODERWAVE -->
   <div class="divider"></div>
 
-  <!-- Menú de navegación - AHORA DEBAJO DE LA LÍNEA -->
+  <!-- Menú -->
   <nav class="py-3">
     <ul class="nav justify-content-center flex-wrap">
       <li class="nav-item">
@@ -444,7 +440,7 @@
     </p>
 
     <div class="contact-content">
-      <!-- Información de contacto - TODA LA INFORMACIÓN PRIMERO -->
+      <!-- Información de contacto-->
       <div class="contact-info">
         <!-- General Support -->
         <div class="contact-category repel-effect">
@@ -489,7 +485,7 @@
         </div>
       </div>
 
-      <!-- Formulario de contacto - AHORA DEBAJO DE TODO EL TEXTO -->
+      <!-- Formulario de contacto -->
       <div class="contact-form repel-effect">
         <h3 class="section-title">Get in touch</h3>
         <p class="contact-description">Leave your message and we'll get back to you shortly.</p>
@@ -581,8 +577,8 @@
     </div>
   </div>
 </footer>
-
 <script>
+
 // Efecto repelente 3D mejorado
 document.querySelectorAll('.repel-effect').forEach(item => {
   item.addEventListener('mousemove', (e) => {

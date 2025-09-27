@@ -6,8 +6,7 @@
   <title>Services - Coderwave Crafters</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
-    /* Estilos generales */
-    body {
+      body {
       margin: 0;
       font-family: 'Arial', sans-serif;
       background: #000;
@@ -33,7 +32,6 @@
       margin-top: 10px;    
     }
 
-    /* Header reorganizado */
     .site-header {
       padding-top: 0;
     }
@@ -47,7 +45,6 @@
       margin: 0;
     }
 
-    /* Header y navegación */
     header {
       position: relative;
       z-index: 1000;
@@ -55,7 +52,7 @@
 
     nav {
       background-color: transparent !important;
-      padding: 15px 0 20px; /* Ajustado el padding */
+      padding: 15px 0 20px; 
     }
 
     .nav-link {
@@ -88,14 +85,14 @@
       transform: translateY(-2px);
     }
 
-    /* Sección principal (ahora solo el contenido después del menú) */
+    /* Sección principal */
     .content-section {
-      padding: 40px 20px; /* Reducido el padding */
+      padding: 40px 20px; 
     }
 
     /* Sección de proyectos */
     .projects-section {
-      padding: 60px 20px; /* Reducido el padding */
+      padding: 60px 20px; 
       max-width: 1200px;
       margin: 0 auto;
     }
@@ -170,7 +167,6 @@
       border-top: none;
     }
 
-    /* Animación original de proyectos */
     .project-item:hover {
       background: #252525;
       transform: translateY(-5px);
@@ -251,7 +247,7 @@
 
     /* Sección workflow */
     .workflow-section {
-      padding: 80px 20px; /* Reducido el padding */
+      padding: 80px 20px; 
       background: #000;
       border-top: 1px solid #333;
       border-bottom: 1px solid #333;
@@ -319,7 +315,7 @@
     /* Footer */
     footer {
       background: #000;
-      padding: 40px 20px 30px; /* Reducido el padding */
+      padding: 40px 20px 30px; 
     }
 
     .footer-content {
@@ -341,7 +337,7 @@
     .terms-and-conditions a:hover {
       color: #fff;
     }
-
+/* Footer */
     .footer-content p {
       margin: 0 10px;
       margin-bottom: 35px;
@@ -497,15 +493,14 @@
 </head>
 <body>
 
-<!-- Encabezado reorganizado -->
-<div class="site-header">
-  <!-- Título CODERWAVE pegado al top -->
+  <div class="site-header">
+  <!-- Título CODERWAVE -->
   <h1 class="main-title">CODERWAVE</h1>
   
-  <!-- Línea divisoria muy cerca del título -->
+  <!-- Línea divisoria -->
   <div class="divider"></div>
   
-  <!-- Menú de navegación debajo de la línea -->
+  <!-- Menú -->
   <header>
     <nav class="py-3">
       <ul class="nav justify-content-center flex-wrap">
@@ -529,7 +524,6 @@
   </header>
 </div>
 
-<!-- Contenido principal -->
 <main class="content-section">
 
   <!-- Sección de proyectos -->
@@ -714,6 +708,7 @@
 </div>
 
 <script>
+  
 // Funciones para los modales
 function openModal(modalId) {
   document.getElementById(modalId).style.display = 'block';
