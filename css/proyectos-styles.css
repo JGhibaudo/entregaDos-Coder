@@ -1,0 +1,483 @@
+      body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background: #000;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Efecto repelente del mouse */
+    .repel-effect {
+      transition: all 0.3s ease;
+    }
+
+    .repel-effect:hover {
+      transform: scale(1.02);
+      z-index: 10;
+    }
+
+    /* Línea divisoria */
+    .divider {
+      height: 1px;
+      background: #333;
+      width: 100%;
+      margin-top: 10px;    
+    }
+
+    .site-header {
+      padding-top: 0;
+    }
+
+    .main-title {
+      font-size: 13.1rem;
+      font-weight: bold;
+      text-align: center;
+      line-height: 0.7;
+      text-transform: uppercase;
+      margin: 0;
+    }
+
+    header {
+      position: relative;
+      z-index: 1000;
+    }
+
+    nav {
+      background-color: transparent !important;
+      padding: 15px 0 20px; 
+    }
+
+    .nav-link {
+      color: #fff !important;
+      font-weight: bold;
+      font-size: 1.1rem;
+      letter-spacing: 10px;
+      margin: 0 15px;
+      padding: 5px 0 !important;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: #fff;
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .nav-link:hover {
+      transform: translateY(-2px);
+    }
+
+    /* Sección principal */
+    .content-section {
+      padding: 40px 20px; 
+    }
+
+    /* Sección de proyectos */
+    .projects-section {
+      padding: 60px 20px; 
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .projects-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .project-row {
+      display: flex;
+      gap: 2px;
+    }
+
+    .project-row.single {
+      height: 250px;
+    }
+
+    .project-row.double {
+      height: 250px;
+    }
+
+    .project-item {
+      background: #000;
+      border: 1px solid #333;
+      position: relative;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      display: flex;
+      overflow: hidden;
+    }
+
+    .project-item.full-width {
+      flex: 1;
+    }
+
+    .project-item.half-width {
+      flex: 1;
+    }
+
+    /* Contenido del proyecto */
+    .project-content {
+      flex: 3;
+      padding: 40px 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    /* Espacio para imagen */
+    .project-image {
+      flex: 1;
+      background: rgba(255, 255, 255, 0.05);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #666;
+      font-size: 0.9rem;
+      border-left: 1px solid #333;
+    }
+
+    /* Para proyectos de medio ancho */
+    .project-item.half-width .project-content {
+      flex: 3;
+      padding: 30px 20px;
+    }
+
+    .project-item.half-width .project-image {
+      flex: 1;
+      border-left: 1px solid #333;
+      border-top: none;
+    }
+
+    .project-item:hover {
+      background: #252525;
+      transform: translateY(-5px);
+    }
+
+    .project-number {
+      font-size: 3rem;
+      font-weight: bold;
+      color: #666;
+      margin-bottom: 20px;
+    }
+
+    .project-title {
+      font-size: 1.8rem;
+      font-weight: bold;
+      margin-bottom: 15px;
+      color: #fff;
+    }
+
+    .project-more {
+      color: #666;
+      font-size: 0.9rem;
+      text-decoration: none;
+      position: relative;
+      padding-right: 20px;
+      transition: all 0.3s ease;
+      display: inline-block;
+      margin-top: 20px;
+    }
+
+    .project-more::after {
+      content: '→';
+      position: absolute;
+      right: 0;
+      transition: transform 0.3s ease;
+    }
+
+    .project-more:hover {
+      color: #fff;
+    }
+
+    .project-more:hover::after {
+      transform: translateX(5px);
+    }
+
+    /* Modal de proyecto */
+    .project-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      z-index: 1000;
+      overflow-y: auto;
+    }
+
+    .modal-content {
+      background: #1a1a1a;
+      margin: 50px auto;
+      padding: 40px;
+      max-width: 800px;
+      border: 1px solid #333;
+      position: relative;
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      color: #fff;
+      font-size: 2rem;
+      cursor: pointer;
+      background: none;
+      border: none;
+    }
+
+    /* Sección workflow */
+    .workflow-section {
+      padding: 80px 20px; 
+      background: #000;
+      border-top: 1px solid #333;
+      border-bottom: 1px solid #333;
+    }
+
+    .workflow-container {
+      display: flex;
+      max-width: 1200px;
+      margin: 0 auto;
+      gap: 60px;
+    }
+
+    .workflow-intro {
+      flex: 1;
+      padding-right: 40px;
+    }
+
+    .workflow-title {
+      font-size: 3rem;
+      font-weight: bold;
+      margin-bottom: 30px;
+      letter-spacing: 5px;
+    }
+
+    .workflow-description-main {
+      color: #999;
+      line-height: 1.6;
+      font-size: 1.1rem;
+    }
+
+    .workflow-steps {
+      flex: 1;
+    }
+
+    .workflow-step {
+      padding: 30px 0;
+      border-bottom: 1px solid #333;
+      position: relative;
+    }
+
+    .workflow-step:last-child {
+      border-bottom: none;
+    }
+
+    .workflow-step-number {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+    .workflow-step-title {
+      font-size: 1.3rem;
+      font-weight: bold;
+      margin-bottom: 15px;
+      color: #fff;
+    }
+
+    .workflow-step-description {
+      color: #999;
+      line-height: 1.6;
+      font-size: 1rem;
+    }
+
+    /* Footer */
+    footer {
+      background: #000;
+      padding: 40px 20px 30px; 
+    }
+
+    .footer-content {
+      max-width: 1200px;
+    }
+
+    .terms-and-conditions {
+      margin-bottom: 30px;
+    }
+
+    .terms-and-conditions a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 10px;
+      font-size: 1rem;
+      transition: color 0.3s;
+    }
+
+    .terms-and-conditions a:hover {
+      color: #fff;
+    }
+/* Footer */
+    .footer-content p {
+      margin: 0 10px;
+      margin-bottom: 35px;
+      color: #fff;
+      font-size: 1rem;
+    }
+
+    .social-icons {
+      margin-bottom: 40px;
+    }
+
+    .social-icons a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 10px;
+      font-size: 1rem;
+      transition: color 0.3s;
+    }
+
+    .social-icons a:hover {
+      color: #fff;
+    }
+
+    .crafters-footer {
+      font-size: 15rem;
+      font-weight: bold;
+      border-top: 1px solid #333;
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .main-title {
+        font-size: 4rem;
+        letter-spacing: 6px;
+        padding: 15px 20px 8px;
+      }
+      
+      .workflow-container {
+        flex-direction: column;
+        gap: 40px;
+      }
+      
+      .workflow-intro {
+        padding-right: 0;
+      }
+      
+      .workflow-title {
+        font-size: 2.5rem;
+      }
+      
+      .project-row {
+        flex-direction: column;
+        height: auto;
+      }
+      
+      .project-item {
+        height: 200px;
+      }
+      
+      nav {
+        padding: 12px 0 15px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .main-title {
+        font-size: 3rem;
+        letter-spacing: 4px;
+        padding: 10px 15px 5px;
+      }
+      
+      .workflow-title {
+        font-size: 2rem;
+      }
+      
+      .project-item {
+        flex-direction: column;
+        height: auto;
+      }
+      
+      .project-item .project-image {
+        border-left: none;
+        border-top: 1px solid #333;
+        min-height: 120px;
+      }
+      
+      .project-content {
+        padding: 30px 20px;
+        flex: none;
+      }
+      
+      .project-image {
+        flex: none;
+      }
+      
+      .modal-content {
+        margin: 20px;
+        padding: 30px 20px;
+      }
+      
+      .nav-link {
+        font-size: 1rem;
+        margin: 0 10px;
+      }
+      
+      nav {
+        padding: 10px 0 12px;
+      }
+      
+      .content-section {
+        padding: 30px 15px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .main-title {
+        font-size: 2.5rem;
+        letter-spacing: 3px;
+        padding: 8px 10px 4px;
+      }
+      
+      .workflow-title {
+        font-size: 1.8rem;
+      }
+      
+      .crafters-footer {
+        font-size: 2rem;
+        letter-spacing: 3px;
+      }
+      
+      .project-title {
+        font-size: 1.5rem;
+      }
+      
+      .project-number {
+        font-size: 2.5rem;
+      }
+      
+      .nav-link {
+        font-size: 0.9rem;
+        margin: 0 8px;
+      }
+      
+      nav {
+        padding: 8px 0 10px;
+      }
+      
+      .content-section {
+        padding: 20px 10px;
+      }
+    }

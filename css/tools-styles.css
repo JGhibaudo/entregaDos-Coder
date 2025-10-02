@@ -1,0 +1,356 @@
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Arial', sans-serif;
+      background: #000;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* HEADER */
+    header {
+      position: relative;
+      z-index: 1000;
+      width: 100%;
+      padding-top: 70px; 
+    }
+
+    /* LÍNEA SUPERIOR */
+    .header-line {
+      width: 100%;
+      height: 1px;
+      background: #fff;
+      display: block;
+      position: absolute;
+      top: 40px; 
+      left: 0;
+      z-index: 1001;
+    }
+
+    /* NAV */
+    nav {
+      width: 100%;
+      background: transparent !important;
+      padding: 1px 0 20px !important;
+    }
+
+    .nav-container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      gap: 40px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-item {
+      margin: 0;
+    }
+
+    .nav-link {
+      color: #fff !important;
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 6px;
+      padding: 10px 0 !important;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 5px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: #fff;
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .nav-link:hover {
+      color: #ccc !important;
+    }
+
+    /* HERO */
+    .hero-section {
+      padding: 100px 10px 80px; 
+    }
+
+    .main-title {
+      font-size: 5rem;
+      font-weight: bold;
+      margin-bottom: 80px; 
+      line-height: 1;
+      text-transform: uppercase;
+      color: #fff;
+    }
+
+    .letter {
+      display: inline-block;
+      transition: transform 0.3s ease;
+    }
+
+    .letter:hover {
+      transform: translateY(-5px);
+    }
+
+    /* SKILLS */
+    .skills-section {
+      padding: 60px 0; 
+      background: #000;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      text-align: center;
+      margin-bottom: 50px; 
+      color: #fff;
+      font-weight: 300;
+      text-transform: uppercase;
+      letter-spacing: 6px;
+    }
+
+    /* CARRUSEL */
+    .carousel-container {
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .carousel-track {
+      display: flex;
+      animation: scroll-left 40s linear infinite;
+      width: max-content;
+    }
+
+    .carousel-track-right {
+      animation: scroll-right 40s linear infinite;
+    }
+
+    .skill-card {
+      min-width: 350px;
+      padding: 0 60px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-right: 1px solid #333;
+    }
+
+    .skill-card:last-child {
+      border-right: none;
+    }
+
+    .skill-card img {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 30px;
+      filter: brightness(0) invert(1);
+      transition: transform 0.6s ease;
+    }
+
+    .skill-card:hover img {
+      transform: rotate(360deg);
+    }
+
+    .skill-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .skill-card p {
+      font-size: 1rem;
+      color: #999;
+      line-height: 1.6;
+      max-width: 300px;
+    }
+
+    @keyframes scroll-left {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    @keyframes scroll-right {
+      0% { transform: translateX(-50%); }
+      100% { transform: translateX(0); }
+    }
+
+    /* CRAFTERS */
+    .crafters-section {
+      padding: 80px 20px 60px; 
+      text-align: center;
+    }
+
+    .crafters-title {
+      font-size: 10.5rem;
+      font-weight: bold;
+      margin-bottom: 60px; 
+      text-transform: uppercase;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #000;
+      padding: 90px 20px; 
+      text-align: center;
+      border-top: 2px solid #333;
+    }
+
+    .footer-links {
+      margin-bottom: 20px; 
+    }
+
+    .footer-links a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .footer-separator {
+      color: #fff;
+      margin: 10 10px;
+    }
+
+    .copyright {
+      color: #fff;
+      margin: 20px 0; 
+      font-size: 0.9rem;
+      letter-spacing: 2px;
+    }
+
+    .social-icons a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 12px;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1200px) {
+      .main-title {
+        font-size: 5rem;
+        letter-spacing: 15px;
+      }
+      .nav-menu {
+        gap: 40px;
+      }
+      header {
+        padding-top: 90px;
+      }
+      .header-line {
+        top: 70px;
+      }
+      .crafters-title {
+        font-size: 9rem;
+        letter-spacing: 15px;
+      }
+    }
+
+    @media (max-width: 992px) {
+      .main-title {
+        font-size: 4rem;
+        letter-spacing: 12px;
+      }
+      .nav-menu {
+        gap: 30px;
+      }
+      .skill-card {
+        min-width: 300px;
+        padding: 0 40px;
+      }
+      header {
+        padding-top: 80px;
+      }
+      .header-line {
+        top: 60px;
+      }
+      .crafters-title {
+        font-size: 7rem;
+        letter-spacing: 12px;
+      }
+      .skills-section {
+        padding: 50px 0;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .main-title {
+        font-size: 3rem;
+        letter-spacing: 8px;
+      }
+      .nav-menu {
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+      .nav-link {
+        font-size: 0.9rem;
+        letter-spacing: 2px;
+      }
+      .skill-card {
+        min-width: 250px;
+        padding: 0 30px;
+      }
+      header {
+        padding-top: 70px;
+      }
+      .header-line {
+        top: 50px;
+      }
+      .crafters-title {
+        font-size: 5rem;
+        letter-spacing: 8px;
+      }
+      .skills-section {
+        padding: 40px 0;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .main-title {
+        font-size: 2.2rem;
+        letter-spacing: 6px;
+      }
+      .nav-menu {
+        gap: 15px;
+        flex-direction: column;
+      }
+      .crafters-title {
+        font-size: 3rem;
+        letter-spacing: 6px;
+      }
+      header {
+        padding-top: 60px;
+      }
+      .header-line {
+        top: 40px;
+      }
+      .skills-section {
+        padding: 30px 0;
+      }
+      .section-title {
+        margin-bottom: 30px;
+      }
+    }

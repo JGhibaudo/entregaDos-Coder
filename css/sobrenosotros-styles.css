@@ -1,0 +1,337 @@
+
+    /* Estilos generales */
+body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background: #000;
+      color: #fff;
+      overflow-x: hidden;
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    main {
+      flex: 1;
+    }
+
+    /* Efecto repelente del mouse */
+    .repel-effect {
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .repel-effect:hover {
+      z-index: 10;
+    }
+
+    /* Línea divisoria */
+    .divider {
+      height: 1px;
+      background: #333;
+      width: 100%;
+      margin-top: 12px; 
+    }
+
+    /* Header reorganizado */
+    .site-header {
+      padding-top: 0;
+    }
+
+    .main-title {
+      font-size: 13.1rem;
+      font-weight: bold;
+      text-align: center;
+      line-height: 0.7;
+      text-transform: uppercase;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Header y navegación */
+    header {
+      position: relative;
+      z-index: 1000;
+    }
+
+    nav {
+      background-color: transparent !important;
+      padding: 15px 0 20px;
+    }
+
+    .nav-link {
+      color: #fff !important;
+      font-weight: bold;
+      font-size: 1.1rem;
+      letter-spacing: 10px;
+      margin: 0 15px;
+      padding: 5px 0 !important;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: #fff;
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .nav-link:hover {
+      transform: translateY(-2px);
+    }
+
+    /* Sección principal con título */
+    .hero-section {
+      padding: 0;
+      text-align: center;
+    }
+
+    /* Subtítulo */
+    .subtitle {
+      font-size: 2.5rem;
+      font-weight: bold;
+      text-align: center;
+      margin: 60px 0 40px;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+    }
+
+    /* Sección de contenido */
+    .content-section {
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Imagen destacada */
+    .featured-image {
+      width: 100%;
+      max-width: 900px;
+      height: 600px;
+      margin: 40px auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #333;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .featured-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Secciones de texto */
+    .text-section {
+      margin-bottom: 80px;
+    }
+
+    .section-title {
+      font-size: 3rem;
+      font-weight: bold;
+      margin-bottom: 30px;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .text-content {
+      color: #fff;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin-bottom: 30px;
+    }
+
+    /* Sección Founder */
+    .founder-section {
+      background: #000;
+      padding: 80px 20px;
+      border-top: 1px solid #333;
+      border-bottom: 1px solid #333;
+      margin: 60px 0;
+    }
+
+    .founder-content {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .founder-title {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 30px;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    /* Footer - PEGADO AL FONDO */
+    footer {  background: #000;
+      padding: 40px 20px 30px; /* Reducido el padding */
+    
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .terms-and-conditions {
+      margin-bottom: 20px;
+    }
+
+    .terms-and-conditions a {
+      color: #fff;
+      text-decoration: none;
+      margin: 10px;
+      font-size: 1rem;
+      transition: color 0.3s;
+    }
+
+    .terms-and-conditions a:hover {
+      color: #fff;
+    }
+
+    .footer-content p {
+      margin: 0 10px;
+      margin-bottom: 20px;
+      color: #fff;
+      font-size: 1rem;
+    }
+
+    .social-icons {
+      margin-bottom: 20px;
+    }
+
+    .social-icons a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 10px;
+      font-size: 1rem;
+      transition: color 0.3s;
+    }
+
+    .social-icons a:hover {
+      color: #fff;
+    }
+
+    .crafters-footer {
+      font-size: 15rem;
+      font-weight: bold;
+      border-top: 1px solid #333;
+      padding-top: 10px;
+      margin-top: 20px;
+      line-height: 1;
+      margin-bottom: 0;
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .main-title {
+        font-size: 4rem;
+        letter-spacing: 6px;
+      }
+      
+      .section-title {
+        font-size: 2.5rem;
+      }
+      
+      .subtitle {
+        font-size: 2rem;
+      }
+      
+      .featured-image {
+        height: 300px;
+      }
+      
+      .crafters-footer {
+        font-size: 8rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .main-title {
+        font-size: 3rem;
+        letter-spacing: 4px;
+      }
+      
+      .section-title {
+        font-size: 2rem;
+      }
+      
+      .subtitle {
+        font-size: 1.8rem;
+        margin: 40px 0 30px;
+      }
+      
+      .founder-title {
+        font-size: 1.8rem;
+      }
+      
+      .text-content {
+        font-size: 1rem;
+      }
+      
+      .featured-image {
+        height: 250px;
+        margin: 30px auto;
+      }
+      
+      .nav-link {
+        font-size: 1rem;
+        margin: 0 10px;
+        letter-spacing: 5px;
+      }
+      
+      .content-section {
+        padding: 40px 20px;
+      }
+      
+      .crafters-footer {
+        font-size: 6rem;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .main-title {
+        font-size: 2.5rem;
+        letter-spacing: 3px;
+      }
+      
+      .section-title {
+        font-size: 1.8rem;
+      }
+      
+      .subtitle {
+        font-size: 1.5rem;
+        letter-spacing: 2px;
+      }
+      
+      .founder-title {
+        font-size: 1.5rem;
+      }
+      
+      .crafters-footer {
+        font-size: 3rem;
+        letter-spacing: 3px;
+      }
+      
+      .featured-image {
+        height: 200px;
+      }
+    }
