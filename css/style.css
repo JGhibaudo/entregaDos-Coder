@@ -1,10 +1,17 @@
 @charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   background: #000;
   color: #fff;
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 
 /* ====== SECCIONES ====== */
@@ -12,38 +19,104 @@ section, header, footer {
   border: 1px solid rgba(255, 255, 255, 0.2);
   margin: 1rem auto;
   max-width: 90%;
-  padding: 2rem;
+  padding: clamp(1rem, 3vw, 2rem);
   box-sizing: border-box;
   border-radius: 4px;
+}
+
+/* HEADER CON NAVEGACIÓN */
+.site-header {
+  padding-top: 0;
+}
+
+.main-title {
+  font-size: clamp(2.5rem, 12vw, 13.1rem);
+  font-weight: bold;
+  text-align: center;
+  line-height: 0.85;
+  text-transform: uppercase;
+  margin: 0;
+  padding: clamp(0.5rem, 2vw, 1rem) 1rem;
+  letter-spacing: clamp(0.1rem, 1.5vw, 0.8rem);
+}
+
+.divider {
+  height: 1px;
+  background: #333;
+  width: 100%;
+  margin-top: 0.75rem;
+}
+
+/* NAVEGACIÓN */
+nav {
+  background-color: transparent !important;
+  padding: clamp(0.8rem, 2vw, 0.9375rem) 0 clamp(1rem, 2.5vw, 1.25rem);
+}
+
+.nav {
+  gap: clamp(0.5rem, 2vw, 1rem);
+}
+
+.nav-link {
+  color: #fff !important;
+  font-weight: bold;
+  font-size: clamp(0.8rem, 2vw, 1.1rem);
+  letter-spacing: clamp(0.2rem, 1.5vw, 0.625rem);
+  padding: 0.3125rem 0 !important;
+  position: relative;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: #fff;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.nav-link:hover {
+  transform: translateY(-2px);
 }
 
 /* Sección Portada */
 .hero {
   text-align: center;
-  border-top: none;
+  border: none !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+  max-width: 90%;
 }
 
 .hero-title {
-  font-size: 5rem;
+  font-size: clamp(2rem, 10vw, 5rem);
   font-weight: bold;
-  overflow: hidden;
+  margin: 0;
+  padding-top: 0;
+  animation: wordMove 1s ease forwards;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   margin-bottom: 1rem;
   padding-bottom: 1rem;
+  overflow: visible;
 }
 
-.word {
-  display: block;
-  animation: wordMove 1s ease forwards;
-}
-
-#coderwave {
-  animation-delay: 0.2s;
-}
-
-#crafters {
-  animation: wordMoveUp 1s ease forwards;
-  animation-delay: 1s;
+.hero-line {
+  width: 100%;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin: 1rem auto;
+  animation: slideIn 0.8s ease forwards;
+  animation-delay: 0.5s;
+  opacity: 0;
 }
 
 .hero-text {
@@ -51,8 +124,20 @@ section, header, footer {
   transform: translateX(-50px);
   animation: slideIn 1s ease forwards;
   animation-delay: 2s;
-  max-width: 700px;
+  max-width: min(700px, 90vw);
   margin: 2rem auto 0;
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  line-height: 1.6;
+  padding: 0 clamp(0.5rem, 2vw, 1rem);
+}
+
+.hero-crafters {
+  font-size: clamp(1.5rem, 6vw, 3.5rem);
+  font-weight: bold;
+  margin-top: 1.5rem;
+  animation: wordMoveUp 1s ease forwards;
+  animation-delay: 1.5s;
+  opacity: 0;
 }
 
 @keyframes wordMove {
@@ -65,6 +150,7 @@ section, header, footer {
     opacity: 1;
   }
 }
+
 @keyframes wordMoveUp {
   from {
     transform: translateY(100%);
@@ -75,22 +161,30 @@ section, header, footer {
     opacity: 1;
   }
 }
+
 @keyframes slideIn {
   to {
     transform: translateX(0);
     opacity: 1;
   }
 }
+
 /* Sección About Us */
 .about {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 2rem;
+  gap: clamp(1rem, 3vw, 2rem);
+  flex-wrap: wrap;
+}
+
+.about-text {
+  flex: 1;
+  min-width: min(300px, 100%);
 }
 
 .about-title {
-  font-size: 4rem;
+  font-size: clamp(1.8rem, 6vw, 4rem);
   display: flex;
   flex-direction: column;
   margin-bottom: 1rem;
@@ -121,17 +215,21 @@ section, header, footer {
   border-top: 1px solid rgba(255, 255, 255, 0.2);
   margin-top: 1rem;
   padding-top: 1rem;
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  line-height: 1.6;
 }
 
 .about-images {
   display: flex;
   flex-direction: row;
   gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .about-images .box {
-  width: 80px;
-  height: 100px;
+  width: clamp(60px, 15vw, 80px);
+  height: clamp(80px, 20vw, 100px);
   border: 2px solid white;
   opacity: 0;
   animation: boxUp 1s ease forwards;
@@ -147,6 +245,7 @@ section, header, footer {
     opacity: 1;
   }
 }
+
 /* Sección Skills */
 .skills {
   text-align: center;
@@ -156,12 +255,14 @@ section, header, footer {
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   margin-bottom: 1rem;
   padding-bottom: 0.5rem;
+  font-size: clamp(1.5rem, 4vw, 2rem);
 }
 
 .skills-carousel {
   display: flex;
-  gap: 2rem;
+  gap: clamp(1rem, 3vw, 2rem);
   animation: scrollCarousel 20s linear infinite;
+  padding: 1rem 0;
 }
 
 .skill {
@@ -169,7 +270,8 @@ section, header, footer {
   flex-direction: column;
   align-items: center;
   border-right: 1px solid rgba(255, 255, 255, 0.2);
-  padding: 1rem;
+  padding: clamp(0.5rem, 2vw, 1rem);
+  min-width: min(120px, 25vw);
 }
 
 .skill:last-child {
@@ -177,13 +279,19 @@ section, header, footer {
 }
 
 .skill img {
-  width: 60px;
+  width: clamp(40px, 10vw, 60px);
+  height: clamp(40px, 10vw, 60px);
   filter: invert(1);
   transition: transform 0.5s ease;
 }
 
 .skill img:hover {
   transform: rotate(360deg);
+}
+
+.skill p {
+  font-size: clamp(0.8rem, 2vw, 1rem);
+  margin-top: 0.5rem;
 }
 
 @keyframes scrollCarousel {
@@ -194,151 +302,267 @@ section, header, footer {
     transform: translateX(-50%);
   }
 }
+
 /* Sección Proyectos */
 .recent-work h2 {
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   margin-bottom: 1rem;
   padding-bottom: 0.5rem;
+  font-size: clamp(1.5rem, 4vw, 2rem);
 }
 
 .work-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+  gap: clamp(0.8rem, 2vw, 1rem);
 }
 
 .work-card {
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 4px;
-  padding: 0.5rem;
+  padding: clamp(0.5rem, 2vw, 1rem);
   display: flex;
   flex-direction: column;
   align-items: center;
   background: rgba(255, 255, 255, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.work-card:hover {
+  transform: translateY(-5px);
 }
 
 .work-card img {
   width: 100%;
+  height: clamp(150px, 30vw, 200px);
   border-radius: 4px;
   transition: transform 0.3s ease;
+  object-fit: cover;
 }
 
 .work-card img:hover {
   transform: scale(1.05);
 }
 
-.work-card button {
+.work-info {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.work-info h3 {
+  font-size: clamp(1.1rem, 3vw, 1.3rem);
+  margin-bottom: 0.5rem;
+}
+
+.btn {
   background: #aaf0d1;
+  color: #000;
   border: none;
-  padding: 0.5rem 1rem;
+  padding: clamp(0.4rem, 1.5vw, 0.5rem) clamp(0.8rem, 2vw, 1rem);
   margin-top: 0.5rem;
   cursor: pointer;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.btn:hover {
+  background: #88d4b5;
+  transform: translateY(-2px);
 }
 
 /* Sección Footer */
 footer {
   text-align: center;
   border-top: 1px solid rgba(255, 255, 255, 0.2);
+  margin-top: 2rem;
 }
 
-.footer-text {
-  margin-bottom: 1rem;
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 clamp(1rem, 3vw, 2rem);
 }
 
-.footer-carousel {
-  display: flex;
-  justify-content: center;
-  gap: 3rem;
-  margin-top: 1rem;
-  animation: rotateWords 5s linear infinite;
+.terms-and-conditions {
+  margin-bottom: clamp(1rem, 3vw, 1.5rem);
 }
 
-@keyframes rotateWords {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-  100% {
-    transform: translateY(0);
-  }
+.terms-and-conditions a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 clamp(0.5rem, 2vw, 1rem);
+  font-size: clamp(0.8rem, 2vw, 1rem);
+  transition: color 0.3s;
 }
-/* RESPONSIVE DESIGN */
-/* Tablets */
+
+.terms-and-conditions a:hover {
+  color: #ccc;
+}
+
+.copyright {
+  margin: clamp(1rem, 3vw, 1.5rem) 0;
+  color: #fff;
+  font-size: clamp(0.8rem, 2vw, 1rem);
+}
+
+.social-icons {
+  margin-bottom: clamp(1rem, 3vw, 1.5rem);
+}
+
+.social-icons a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 clamp(0.5rem, 2vw, 1rem);
+  font-size: clamp(0.8rem, 2vw, 1rem);
+  transition: color 0.3s;
+}
+
+.social-icons a:hover {
+  color: #ccc;
+}
+
+.crafters-footer {
+  font-size: clamp(1.5rem, 12vw, 12rem);
+  font-weight: bold;
+  border-top: 1px solid #333;
+  padding-top: clamp(0.5rem, 2vw, 1rem);
+  margin-top: clamp(1rem, 3vw, 2rem);
+  line-height: 0.85;
+  text-transform: uppercase;
+}
+
+/* RESPONSIVE DESIGN MEJORADO */
 @media (max-width: 1024px) {
   section, header, footer {
-    max-width: 100%;
+    max-width: 95%;
+    margin: 0.8rem auto;
   }
+  
   .about {
     flex-direction: column;
-    align-items: center;
     text-align: center;
-    gap: 2rem;
   }
-  .about-title {
-    font-size: 3rem;
-  }
-  .about-paragraph {
-    max-width: 90%;
-    font-size: 0.95rem;
-  }
-  .about-images {
-    justify-content: center;
-    flex-wrap: wrap;
+  
+  .skills-carousel {
+    animation-duration: 25s;
   }
 }
-/* Celulares */
+
 @media (max-width: 768px) {
-  /* Portada */
-  .hero-title {
-    font-size: 14vw; /* escala sin romper */
-  }
-  .hero-text {
-    font-size: 0.9rem;
-    text-align: center;
-    padding: 0 1rem;
-  }
-  /* About */
-  .about {
+  section, header, footer {
+    max-width: 100%;
+    margin: 0.5rem auto;
     padding: 1rem;
-    gap: 1.5rem;
   }
-  .about-title {
-    font-size: 2.2rem;
+  
+  .nav {
+    flex-direction: column;
+    gap: 0.5rem;
   }
-  .about-images .box {
-    width: 70px;
-    height: 100px;
-  }
-  /* Skills */
+  
   .skills-carousel {
     flex-wrap: wrap;
     justify-content: center;
     animation: none;
     gap: 1rem;
   }
+  
   .skill {
-    flex: 1 1 40%;
-    padding: 1.5rem;
-    border: none;
+    flex: 1 1 calc(50% - 1rem);
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    min-width: auto;
   }
-  /* Proyectos */
+  
   .work-grid {
     grid-template-columns: 1fr;
   }
-  .work-card.large {
-    grid-column: span 1;
+  
+  .about-images {
+    gap: 0.5rem;
   }
-  .work-card img {
-    max-width: 100%;
-    height: 160px;
-    object-fit: cover;
-  }
-  /* Footer */
-  .footer-carousel span {
-    font-size: 2.5rem;
+  
+  .about-images .box {
+    width: 70px;
+    height: 90px;
   }
 }
 
-/*pagina contacto*/
+@media (max-width: 480px) {
+  section, header, footer {
+    padding: 0.8rem;
+    margin: 0.3rem auto;
+  }
+  
+  .hero-title {
+    font-size: clamp(1.8rem, 12vw, 3rem);
+  }
+  
+  .skills-carousel {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .skill {
+    flex: 1 1 100%;
+  }
+  
+  .about-images {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .crafters-footer {
+    font-size: clamp(2rem, 15vw, 4rem);
+  }
+  
+  .terms-and-conditions, .social-icons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .terms-and-conditions a, .social-icons a {
+    margin: 0.2rem 0;
+  }
+}
+
+/* Mejoras de accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+  .skills-carousel,
+  .hero-title,
+  .hero-text,
+  .hero-crafters,
+  .about-part,
+  .about-paragraph,
+  .about-images .box {
+    animation: none;
+    transition: none;
+  }
+  
+  .skill img:hover,
+  .work-card:hover,
+  .work-card img:hover,
+  .btn:hover {
+    transform: none;
+  }
+}
+
+/* Soporte para orientación landscape en móviles */
+@media (max-height: 500px) and (orientation: landscape) {
+  .hero-title {
+    font-size: clamp(1.5rem, 8vw, 2.5rem);
+  }
+  
+  .hero-text {
+    margin: 1rem auto 0;
+  }
+  
+  section, header, footer {
+    margin: 0.5rem auto;
+    padding: 0.8rem;
+  }
+}
