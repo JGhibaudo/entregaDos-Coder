@@ -16,7 +16,7 @@ header {
   position: relative;
   z-index: 1000;
   width: 100%;
-  padding-top: 4.375rem; /* 70px */
+  padding-top: 4.375rem; 
 }
 
 /* LÍNEA SUPERIOR */
@@ -26,7 +26,7 @@ header {
   background: #fff;
   display: block;
   position: absolute;
-  top: 2.5rem; /* 40px */
+  top: 2.5rem; 
   left: 0;
   z-index: 1001;
 }
@@ -35,7 +35,7 @@ header {
 nav {
   width: 100%;
   background: transparent !important;
-  padding: 1px 0 1.25rem !important; /* 20px */
+  padding: 1px 0 1.25rem !important; 
 }
 
 .nav-container {
@@ -47,7 +47,7 @@ nav {
 .nav-menu {
   display: flex;
   list-style: none;
-  gap: 2.5rem; /* 40px */
+  gap: 2.5rem; 
   margin: 0;
   padding: 0;
 }
@@ -59,11 +59,11 @@ nav {
 .nav-link {
   color: #fff !important;
   text-decoration: none;
-  font-size: clamp(0.7rem, 2vw, 0.8rem); /* Responsive */
+  font-size: clamp(0.7rem, 2vw, 0.8rem); 
   font-weight: bold;
   text-transform: uppercase;
-  letter-spacing: clamp(0.25rem, 1.5vw, 0.375rem); /* 4px a 6px */
-  padding: 0.625rem 0 !important; /* 10px */
+  letter-spacing: clamp(0.25rem, 1.5vw, 0.375rem); 
+  padding: 0.625rem 0 !important; 
   position: relative;
   transition: all 0.3s ease;
 }
@@ -122,7 +122,7 @@ nav {
   transform: translateY(-5px);
 }
 
-/* RESPONSIVE MEJORADO PARA TÍTULOS DE DOS LÍNEAS */
+/* RESPONSIVE PARA TÍTULOS DE DOS LÍNEAS */
 @media (max-width: 768px) {
   .main-title {
     font-size: clamp(1.6rem, 5vw, 3rem);
@@ -145,7 +145,6 @@ nav {
     letter-spacing: clamp(0.08rem, 0.5vw, 0.2rem);
   }
   
-  /* Permitir que se rompa si es muy pequeño */
   .title-line {
     white-space: normal;
     word-break: keep-all;
@@ -161,18 +160,18 @@ nav {
 
 /* SKILLS */
 .skills-section {
-  padding: clamp(2rem, 6vw, 3.75rem) 0; /* 60px */
+  padding: clamp(2rem, 6vw, 3.75rem) 0; 
   background: #000;
 }
 
 .section-title {
-  font-size: clamp(1.1rem, 3vw, 1.5rem); /* Responsive */
+  font-size: clamp(1.1rem, 3vw, 1.5rem); 
   text-align: center;
-  margin-bottom: clamp(2rem, 5vw, 3.125rem); /* 50px */
+  margin-bottom: clamp(2rem, 5vw, 3.125rem); 
   color: #fff;
   font-weight: 300;
   text-transform: uppercase;
-  letter-spacing: clamp(0.25rem, 1.5vw, 0.375rem); /* Responsive */
+  letter-spacing: clamp(0.25rem, 1.5vw, 0.375rem); 
 }
 
 /* CARRUSEL */
@@ -193,8 +192,8 @@ nav {
 }
 
 .skill-card {
-  min-width: min(350px, 90vw); /* No más de 350px y 90% del viewport */
-  padding: 0 clamp(1.5rem, 4vw, 3.75rem); /* 0 60px responsive */
+  min-width: min(350px, 90vw); 
+  padding: 0 clamp(1.5rem, 4vw, 3.75rem); 
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -207,9 +206,9 @@ nav {
 }
 
 .skill-card img {
-  width: clamp(4rem, 10vw, 5rem); /* 80px responsive */
-  height: clamp(4rem, 10vw, 5rem); /* 80px responsive */
-  margin-bottom: clamp(1.5rem, 4vw, 1.875rem); /* 30px */
+  width: clamp(4rem, 10vw, 5rem); 
+  height: clamp(4rem, 10vw, 5rem); 
+  margin-bottom: clamp(1.5rem, 4vw, 1.875rem); 
   filter: brightness(0) invert(1);
   transition: transform 0.6s ease;
 }
@@ -219,17 +218,17 @@ nav {
 }
 
 .skill-card h3 {
-  font-size: clamp(1.1rem, 3vw, 1.4rem); /* Responsive */
-  margin-bottom: clamp(1rem, 3vw, 1.25rem); /* 20px */
+  font-size: clamp(1.1rem, 3vw, 1.4rem); 
+  margin-bottom: clamp(1rem, 3vw, 1.25rem); 
   text-transform: uppercase;
-  letter-spacing: clamp(0.1rem, 1vw, 0.125rem); /* 2px responsive */
+  letter-spacing: clamp(0.1rem, 1vw, 0.125rem); 
 }
 
 .skill-card p {
-  font-size: clamp(0.9rem, 2vw, 1rem); /* Responsive */
+  font-size: clamp(0.9rem, 2vw, 1rem); 
   color: #999;
   line-height: 1.6;
-  max-width: min(300px, 85vw); /* Responsive */
+  max-width: min(300px, 85vw); 
 }
 
 @keyframes scroll-left {
@@ -244,7 +243,7 @@ nav {
 
 /* CRAFTERS */
 .crafters-section {
-  padding: clamp(3rem, 8vw, 5rem) clamp(1rem, 3vw, 1.25rem) clamp(2rem, 6vw, 3.75rem); /* 80px 20px 60px */
+  padding: clamp(3rem, 8vw, 5rem) clamp(1rem, 3vw, 1.25rem) clamp(2rem, 6vw, 3.75rem); 
   text-align: center;
 }
 
@@ -338,7 +337,7 @@ nav {
   }
 }
 
-/* PREVENIR QUE SE ROMPA EN MÓVILES MUY PEQUEÑOS */
+/* PREVENIR QUE SE ROMPA EN CELULAR */
 @media (max-width: 320px) {
   .crafters-title {
     font-size: clamp(0.8rem, 4vw, 1.8rem);
@@ -355,117 +354,116 @@ nav {
 /* FOOTER */
 footer {
   background: #000;
-  padding: clamp(4rem, 10vw, 5.625rem) clamp(1rem, 3vw, 1.25rem); /* 90px 20px */
+  padding: clamp(4rem, 10vw, 5.625rem) clamp(1rem, 3vw, 1.25rem); 
   text-align: center;
   border-top: 2px solid #333;
 }
 
 .footer-links {
-  margin-bottom: clamp(1rem, 3vw, 1.25rem); /* 20px */
+  margin-bottom: clamp(1rem, 3vw, 1.25rem); 
 }
 
 .footer-links a {
   color: #fff;
   text-decoration: none;
-  margin: 0 clamp(0.5rem, 2vw, 0.9375rem); /* 15px responsive */
-  font-size: clamp(0.8rem, 2vw, 0.9rem); /* Responsive */
+  margin: 0 clamp(0.5rem, 2vw, 0.9375rem); 
+  font-size: clamp(0.8rem, 2vw, 0.9rem); 
   text-transform: uppercase;
-  letter-spacing: clamp(0.1rem, 1vw, 0.125rem); /* 2px responsive */
+  letter-spacing: clamp(0.1rem, 1vw, 0.125rem); 
 }
 
 .footer-separator {
   color: #fff;
-  margin: 0 clamp(0.3rem, 1vw, 0.625rem); /* 10px responsive */
+  margin: 0 clamp(0.3rem, 1vw, 0.625rem); 
 }
 
 .copyright {
   color: #fff;
-  margin: clamp(1rem, 3vw, 1.25rem) 0; /* 20px */
-  font-size: clamp(0.8rem, 2vw, 0.9rem); /* Responsive */
-  letter-spacing: clamp(0.1rem, 1vw, 0.125rem); /* 2px responsive */
+  margin: clamp(1rem, 3vw, 1.25rem) 0; 
+  font-size: clamp(0.8rem, 2vw, 0.9rem); 
+  letter-spacing: clamp(0.1rem, 1vw, 0.125rem); 
 }
 
 .social-icons a {
   color: #fff;
   text-decoration: none;
-  margin: 0 clamp(0.5rem, 2vw, 0.75rem); /* 12px responsive */
-  font-size: clamp(0.8rem, 2vw, 0.9rem); /* Responsive */
+  margin: 0 clamp(0.5rem, 2vw, 0.75rem); 
+  font-size: clamp(0.8rem, 2vw, 0.9rem); 
   text-transform: uppercase;
-  letter-spacing: clamp(0.1rem, 1vw, 0.125rem); /* 2px responsive */
+  letter-spacing: clamp(0.1rem, 1vw, 0.125rem); 
 }
 
 /* RESPONSIVE */
 @media (max-width: 1200px) {
   .nav-menu {
-    gap: 2.5rem; /* 40px */
+    gap: 2.5rem; 
   }
   header {
-    padding-top: 5.625rem; /* 90px */
+    padding-top: 5.625rem; 
   }
   .header-line {
-    top: 4.375rem; /* 70px */
+    top: 4.375rem; 
   }
 }
 
 @media (max-width: 992px) {
   .nav-menu {
-    gap: 1.875rem; /* 30px */
+    gap: 1.875rem; 
   }
   header {
-    padding-top: 5rem; /* 80px */
+    padding-top: 5rem; 
   }
   .header-line {
     top: 3.75rem; /* 60px */
   }
   .skills-section {
-    padding: 3.125rem 0; /* 50px */
+    padding: 3.125rem 0; 
   }
 }
 
 @media (max-width: 768px) {
   .nav-menu {
-    gap: 1.25rem; /* 20px */
+    gap: 1.25rem; 
     flex-wrap: wrap;
     justify-content: center;
   }
   .nav-link {
-    font-size: 0.8rem; /* Mantener legible */
+    font-size: 0.8rem; 
   }
   header {
-    padding-top: 4.375rem; /* 70px */
+    padding-top: 4.375rem; 
   }
   .header-line {
-    top: 3.125rem; /* 50px */
+    top: 3.125rem; 
   }
   .skills-section {
-    padding: 2.5rem 0; /* 40px */
+    padding: 2.5rem 0; 
   }
 }
 
 @media (max-width: 576px) {
   .nav-menu {
-    gap: 0.9375rem; /* 15px */
+    gap: 0.9375rem; 
     flex-direction: column;
     align-items: center;
   }
   header {
-    padding-top: 3.75rem; /* 60px */
+    padding-top: 3.75rem; 
   }
   .header-line {
-    top: 2.5rem; /* 40px */
+    top: 2.5rem; 
   }
   .skills-section {
-    padding: 1.875rem 0; /* 30px */
+    padding: 1.875rem 0; 
   }
   .section-title {
-    margin-bottom: 1.875rem; /* 30px */
+    margin-bottom: 1.875rem; 
   }
 }
 
-/* Extra pequeño - móviles muy pequeños */
 @media (max-width: 380px) {
   .main-title {
-    font-size: 2rem; /* Un poco más pequeño para móviles muy pequeños */
+    font-size: 2rem; 
     letter-spacing: 0.25rem;
   }
   .crafters-title {
@@ -473,7 +471,7 @@ footer {
     letter-spacing: 0.25rem;
   }
   .skill-card {
-    min-width: 95vw; /* Ocupar casi todo el ancho */
+    min-width: 95vw; 
     padding: 0 1rem;
   }
 }
